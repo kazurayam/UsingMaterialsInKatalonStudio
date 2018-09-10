@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>introduce com.kazurayam.materials.MaterialRepository and its Factory class</description>
+   <name>TC2</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>7ef9b9c5-154d-48f9-8e08-215d194056e7</testCaseGuid>
+</TestCaseEntity>

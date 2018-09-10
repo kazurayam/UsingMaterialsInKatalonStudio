@@ -8,5 +8,6 @@
 /libs/Temp*.groovy
 
 Materials/
+tmp/
 Reports/
 /bin/
