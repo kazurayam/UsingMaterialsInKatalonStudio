@@ -13,14 +13,20 @@ import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
  */
 public class GlobalVariable {
      
+    /**
+     * <p>Profile default : Method annotated with @BeforeTestCase in TestListener should set the value</p>
+     */
+    public static Object CURRENT_TESTCASE_ID
+     
 
     static {
         def allVariables = [:]        
-        allVariables.put('default', [:])
+        allVariables.put('default', ['CURRENT_TESTCASE_ID' : ''])
         
         String profileName = RunConfiguration.getExecutionProfile()
         
         def selectedVariables = allVariables[profileName]
+        CURRENT_TESTCASE_ID = selectedVariables['CURRENT_TESTCASE_ID']
         
     }
 }

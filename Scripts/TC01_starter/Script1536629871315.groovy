@@ -9,8 +9,9 @@ import com.kms.katalon.core.model.FailureHandling as FailureHandling
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 /**
- * TC1:
- * open http://demoaut.katalon.com, take screenshot and save it into a file
+ * TC01_starter
+ * 
+ * Open http://demoaut.katalon.com, take screenshot and save it into a file.
  * 
  * Here we use Java 8 features extensively:
  * - java.nio.file.Path
@@ -30,12 +31,12 @@ WebUI.verifyElementPresent(
 Path projectDir = Paths.get(RunConfiguration.getProjectDir())
 Path tmpDir = projectDir.resolve('tmp')
 Files.createDirectories(tmpDir)
-Path pngFile = tmpDir.resolve('TC1_screenshot.png')
+Path pngFile = tmpDir.resolve('TC01_screenshot.png')
 
 // take a screenshot of the page
 WebUI.takeScreenshot(pngFile.toFile().toString())
 
-WebUI.comment("TC1 saved screenshot into ${pngFile.toAbsolutePath().toString()}")
+WebUI.comment("saved the screenshot into ${pngFile.toAbsolutePath().toString()}")
 
 // Good Bye
 WebUI.closeBrowser()

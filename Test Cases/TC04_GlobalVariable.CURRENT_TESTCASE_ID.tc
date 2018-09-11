@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>MyTestListener set value to GlobalVariable.CURRENT_TESTCASE_ID which is refered to by TC03</description>
+   <name>TC04_GlobalVariable.CURRENT_TESTCASE_ID</name>
+   <tag></tag>
+   <comment>TC2 saved screenshot into $pngFile.toAbsolutePath().toString()</comment>
+   <testCaseGuid>f750bb48-b78a-40b4-8570-31cbaec3a600</testCaseGuid>
+</TestCaseEntity>

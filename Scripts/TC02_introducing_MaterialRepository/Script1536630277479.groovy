@@ -12,7 +12,8 @@ import com.kazurayam.materials.MaterialRepository
 import com.kazurayam.materials.MaterialRepositoryFactory
 
 /**
- * TC2:
+ * TC02_introducing_MaterialRespository
+ * 
  * Open http://demoaut.katalon.com, take screenshot and save it into a file.
  * The location of the screenshot file is resolved by MaterialRespository.
  */
@@ -27,18 +28,19 @@ WebUI.verifyElementPresent(
 
 // prepare instance of MaterialRepository
 Path materialsDir = Paths.get(RunConfiguration.getProjectDir()).resolve('Materials')
-Files.createDirectories(materialsDir)
+// The directory 'Materials' will be created if not present by the MaterialRepository
 MaterialRepository mr = MaterialRepositoryFactory.createInstance(materialsDir)
 
-// resolve the location of PNG file to save the screenshot using Java 8 Pat
-Path pngFile = mr.resolveMaterialPath('TC2', 'TC2_screenshot.png')
+// resolve the location of PNG file to save the screenshot
+Path pngFile = mr.resolveMaterialPath('TC02_introducing_MaterialRepository', 'TC02_screenshot.png')
 // --> pngFile will be <project dir>/Materials/_/_/<test case name>/<file name>
-// -->           e.g., <project dir>/Materials/_/_/TC2/TC2_screenshot.png
+// -->           e.g., <project dir>/Materials/_/_/TC02_introducing_MaterialRepository/TC2_screenshot.png
+// The pngFile will be created with 0-bytes length.
 
 // take a screenshot of the page
 WebUI.takeScreenshot(pngFile.toFile().toString())
 
-WebUI.comment("TC2 saved screenshot into ${pngFile.toAbsolutePath().toString()}")
+WebUI.comment("saved the screenshot into ${pngFile.toAbsolutePath().toString()}")
 
 // Good Bye
 WebUI.closeBrowser()

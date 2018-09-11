@@ -4,4 +4,9 @@
    <name>default</name>
    <tag></tag>
    <defaultProfile>true</defaultProfile>
+   <GlobalVariableEntity>
+      <description>Method annotated with @BeforeTestCase in TestListener should set the value</description>
+      <initValue>''</initValue>
+      <name>CURRENT_TESTCASE_ID</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
