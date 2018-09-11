@@ -18,15 +18,39 @@ public class GlobalVariable {
      */
     public static Object CURRENT_TESTCASE_ID
      
+    /**
+     * <p>Profile default : instance of com.kazurayam.materials.MaterialRepository</p>
+     */
+    public static Object MATERIAL_REPOSITORY
+     
+    /**
+     * <p></p>
+     */
+    public static Object Hostname
+     
+    /**
+     * <p></p>
+     */
+    public static Object Username
+     
+    /**
+     * <p></p>
+     */
+    public static Object Password
+     
 
     static {
         def allVariables = [:]        
-        allVariables.put('default', ['CURRENT_TESTCASE_ID' : ''])
+        allVariables.put('default', ['CURRENT_TESTCASE_ID' : '', 'MATERIAL_REPOSITORY' : null, 'Hostname' : 'demoaut.katalon.com', 'Username' : 'John Doe', 'Password' : 'ThisIsNotAPassword'])
         
         String profileName = RunConfiguration.getExecutionProfile()
         
         def selectedVariables = allVariables[profileName]
         CURRENT_TESTCASE_ID = selectedVariables['CURRENT_TESTCASE_ID']
+        MATERIAL_REPOSITORY = selectedVariables['MATERIAL_REPOSITORY']
+        Hostname = selectedVariables['Hostname']
+        Username = selectedVariables['Username']
+        Password = selectedVariables['Password']
         
     }
 }

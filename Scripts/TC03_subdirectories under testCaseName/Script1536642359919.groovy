@@ -11,17 +11,11 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kazurayam.materials.MaterialRepository
 import com.kazurayam.materials.MaterialRepositoryFactory
 
-import internal.GlobalVariable
-
 /**
- * TC04_GlobalVariable.CURRENT_TESTCASE_ID
+ * TC03_subdirectories_under_testCaseName
  *
  * Open http://demoaut.katalon.com, take screenshot and save it into a file.
  * The location of the screenshot file is resolved by MaterialRespository.
- * 
- * GlobalVariable.CURRENT_TESTCASE_ID is introduced.
- * A method annotated with @BeforeTestCase in the MyTestListener set its value.
- * TC03 reads the GlobalVariable.CURRENT_TESTCASE_ID to pass to the resolve
  */
 
 // open browser, navigate to a Katalon demo site, make sure the page is displayed
@@ -38,17 +32,17 @@ Path materialsDir = Paths.get(RunConfiguration.getProjectDir()).resolve('Materia
 MaterialRepository mr = MaterialRepositoryFactory.createInstance(materialsDir)
 
 // resolve the location of PNG file to save the screenshot
-String testCaseId = (String)GlobalVariable.CURRENT_TESTCASE_ID 
-assert testCaseId != null
-// get the testCaseId from GlobalVariable.CURRENT_TESTCASE_ID which is set by MyTestListener
-Path pngFile = mr.resolveMaterialPath(testCaseId, 'TC04_screenshot.png')
-// --> pngFile will be <project dir>/Materials/_/_/<test case name>/<file name>
-// -->           e.g., <project dir>/Materials/_/_/TC04_GlobalVariable.CURRENT_TESTCASE_ID/TC04_screenshot.png
-
-// take a screenshot of the page
+Path pngFile = mr.resolveMaterialPath('TC03_subdirectories under testCaseName', 'subdirA/subdirA/TC03_screenshot.png')
+// --> <project dir>/Materials/_/_/TC03_subdirectories under testCaseName/subdirA/subdirA/TC3_screenshot.png
+// The parent directories of the pngFile will be automatically created.
+// The pngFile will be created with 0-bytes length.
 WebUI.takeScreenshot(pngFile.toFile().toString())
+// The pngFile will be stuffed with image bytes.
 
-WebUI.comment("saved the screenshot into ${pngFile.toAbsolutePath().toString()}")
+// make one more file
+pngFile = mr.resolveMaterialPath('TC03_subdirectories under testCaseName', 'subdirB/subdirB/TC03_screenshot.png')
+// --> <project dir>/Materials/_/_/TC03_subdirectories under testCaseName/subdirB/subdirB/TC3_screenshot.png
+WebUI.takeScreenshot(pngFile.toFile().toString())
 
 // Good Bye
 WebUI.closeBrowser()

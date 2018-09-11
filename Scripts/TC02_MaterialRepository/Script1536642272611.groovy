@@ -32,9 +32,9 @@ Path materialsDir = Paths.get(RunConfiguration.getProjectDir()).resolve('Materia
 MaterialRepository mr = MaterialRepositoryFactory.createInstance(materialsDir)
 
 // resolve the location of PNG file to save the screenshot
-Path pngFile = mr.resolveMaterialPath('TC02_introducing_MaterialRepository', 'TC02_screenshot.png')
+Path pngFile = mr.resolveMaterialPath('TC02_MaterialRepository', 'TC02_screenshot.png')
 // --> pngFile will be <project dir>/Materials/_/_/<test case name>/<file name>
-// -->           e.g., <project dir>/Materials/_/_/TC02_introducing_MaterialRepository/TC2_screenshot.png
+// -->           e.g., <project dir>/Materials/_/_/TC02_MaterialRepository/TC2_screenshot.png
 // The pngFile will be created with 0-bytes length.
 
 // take a screenshot of the page
