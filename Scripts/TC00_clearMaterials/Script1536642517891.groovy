@@ -7,7 +7,7 @@ import com.kms.katalon.core.configuration.RunConfiguration
 /**
  * TC00_clearMaterials
  * 
- * recursively delete the directories and files under the Materials directory
+ * recursively delete the directories and files under the <projectDir>/Materials/ directory
  * 
  * @author kazurayam
  */

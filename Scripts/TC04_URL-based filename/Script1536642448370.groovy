@@ -40,7 +40,7 @@ Path pngFile = mr.resolveScreenshotPath('TC04_URL-based filename', new URL(urlSt
 WebUI.takeScreenshot(pngFile.toFile().toString())
 // The pngFile will be stuffed with image bytes.
 
-// make one more file
+// make one more file under sub-directory
 pngFile = mr.resolveScreenshotPath('TC04_URL-based filename', Paths.get('subdir'), new URL(urlString))
 // --> <project dir>/Materials/_/_/TC04_URL-based filename/subdir/http%3A%2F%2Fdemoaut.katalon.com.png
 WebUI.takeScreenshot(pngFile.toFile().toString())
