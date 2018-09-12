@@ -21,7 +21,6 @@ assert mr != null
 
 WebUI.openBrowser('')
 WebUI.setViewPortSize(1024, 768)
-WebDriver driver = DriverFactory.getWebDriver()
 
 // open the target website
 WebUI.navigateToUrl("http://${GlobalVariable.Hostname}/")
@@ -29,123 +28,120 @@ WebUI.navigateToUrl("http://${GlobalVariable.Hostname}/")
 WebUI.verifyElementPresent(findTestObject('Page_CuraHomepage/a_Make Appointment'),
 		10, FailureHandling.STOP_ON_FAILURE)
 
-Path png1 = mr.resolveMaterialPath(GlobalVariable.CURRENT_TESTCASE_ID, "CURA_Homepage.png")
+Path png1 = mr.resolveMaterialPath(GlobalVariable.CURRENT_TESTCASE_ID, "1 CURA_Homepage.png")
 WebUI.takeScreenshot(png1.toFile().toString())
 
 
-// Make AppointmentボタンをクリックしてLogin画面を呼び出しUsernameとPasswordを入力しログインするまでを
-// 別のTest Caseで実行する
-/*
-WebUI.callTestCase(findTestCase('Common/Login'),
-	[
-		'Username': GlobalVariable.Username,
-		'Password': GlobalVariable.Password
-	],
-	FailureHandling.STOP_ON_FAILURE)
-*/
+// click the "a_Make Appointment" button to open the Login page
 WebUI.click(findTestObject('Page_CuraHomepage/a_Make Appointment'))
 
-// transfered to the Login page
+// make sure that we are transfered to the Login page
 WebUI.verifyElementPresent(findTestObject('Page_Login/button_Login'),
 	10, FailureHandling.STOP_ON_FAILURE)
 
+// type Username and Password into the fields
 WebUI.setText(findTestObject('Page_Login/input_username'), GlobalVariable.Username)
 WebUI.setText(findTestObject('Page_Login/input_password'), GlobalVariable.Password)
 
 // takes Screenshot of the Login page
-Path png2 = mr.resolveMaterialPath(GlobalVariable.CURRENT_TESTCASE_ID, "CURA_Login.png")
+Path png2 = mr.resolveMaterialPath(GlobalVariable.CURRENT_TESTCASE_ID, "2 CURA_Login.png")
 WebUI.takeScreenshot(png2.toFile().toString())
 
+// click the "button_login"
 WebUI.click(findTestObject('Page_Login/button_Login'))
 
-// ここで入力ページに遷移
+// make sure that we are transfered to the CuraAppointment page
 WebUI.verifyElementPresent(findTestObject('Page_CuraAppointment/button_Book Appointment'),
 	10, FailureHandling.STOP_ON_FAILURE)
 
-
-
-
-// 診察の予約を入力する
-WebUI.selectOptionByValue(findTestObject('Page_CuraAppointment/select_Tokyo CURA Healthcare C'), 'Hongkong CURA Healthcare Center',
+// select Tokyo
+WebUI.selectOptionByValue(findTestObject('Page_CuraAppointment/select_Tokyo CURA Healthcare C'),
+	'Hongkong CURA Healthcare Center',
 	true)
 
+// select hostpital readmission on
 WebUI.click(findTestObject('Page_CuraAppointment/input_hospital_readmission'))
 
+// select medicated
 WebUI.click(findTestObject('Page_CuraAppointment/input_programs'))
 
-// 今日を起点に来週の同じ曜日を指定
-
+// select the day 1 week later
 def visitDate = LocalDateTime.now().plusWeeks(1)
 def visitDateStr = DateTimeFormatter.ofPattern("dd/MM/yyyy").format(visitDate)
 WebUI.setText(findTestObject('Page_CuraAppointment/input_visit_date'), visitDateStr)
-// date picker のダイアログを閉じるため Enterを押す
+
+// send ENTER to close the date picker dialog
 WebUI.sendKeys(findTestObject('Page_CuraAppointment/input_visit_date'), Keys.chord(Keys.ENTER))
 
-// コメントを入力
+// type comment in
 WebUI.setText(findTestObject('Page_CuraAppointment/textarea_comment'), 'This is a comment')
 
-
 // takes Screenshot of the CURA Appointment page
-Path png3 = mr.resolveMaterialPath(GlobalVariable.CURRENT_TESTCASE_ID, "CURA_Appointment.png")
+Path png3 = mr.resolveMaterialPath(GlobalVariable.CURRENT_TESTCASE_ID, "3 CURA_Appointment.png")
 WebUI.takeScreenshot(png3.toFile().toString())
 
-
-// ここで確認ページに遷移
-
+// click the "Book Appointment" button
 WebUI.click(findTestObject('Page_CuraAppointment/button_Book Appointment'))
 
+
+// make sure that we are transfered to the AppointmentConfirmation page
 WebUI.verifyElementPresent(findTestObject('Page_AppointmentConfirmation/a_Go to Homepage'),
 	10, FailureHandling.STOP_ON_FAILURE)
 
+
+
+// Now we will check if the appointment has been made correctly -----------------------
+
+// check the facility
 def facility = WebUI.getText(findTestObject('Page_AppointmentConfirmation/p_facility'))
 WebUI.verifyMatch(facility,
 	'^(Tokyo|Hongkong|Seoul) CURA Healthcare Center$', true)
 
+// check the readmission
 def readmission = WebUI.getText(findTestObject('Page_AppointmentConfirmation/p_hospital_readmission'))
 WebUI.verifyMatch(readmission,
 	'(Yes|No)', true)
 
+// check the program
 def program = WebUI.getText(findTestObject('Page_AppointmentConfirmation/p_program'))
 WebUI.verifyMatch(program,
 	'(Medicare|Medicaid|None)', true)
 
+// check the date
 def visitDateStr2 = WebUI.getText(findTestObject('Page_AppointmentConfirmation/p_visit_date'))
 WebUI.verifyMatch(visitDateStr2,
 	'[0-9]{2}/[0-9]{2}/[0-9]{4}',
 	true, FailureHandling.CONTINUE_ON_FAILURE)
-
 TemporalAccessor parsed = DateTimeFormatter.ofPattern('dd/MM/uuuu').parse(visitDateStr2)
-
 LocalDateTime visitDate2 = LocalDate.from(parsed).atStartOfDay()
-// 今日よりも未来の日付であること
+// the date should be in future
 boolean isAfterNow = visitDate2.isAfter(LocalDateTime.now())
 WebUI.verifyEqual(isAfterNow, true, FailureHandling.CONTINUE_ON_FAILURE)
-
-// 日曜日ではないこと
+// the date should not be Sunday
 def dayOfWeek = DateTimeFormatter.ofPattern('E').withLocale(Locale.US).format(parsed)
-WebUI.verifyNotEqual(dayOfWeek, 'Sun')      //本当はこっち
-//WebUI.verifyEqual(dayOfWeek, 'Sun')           //わざと失敗させてみた
+WebUI.verifyNotEqual(dayOfWeek, 'Sun')
 
+// check comment
 def comment = WebUI.getText(findTestObject('Page_AppointmentConfirmation/p_comment'))
 if (comment != null) {
 	WebUI.verifyLessThan(comment.length(), 400)
 }
 
 // takes Screenshot of the Appointment Confirmation page
-Path png4 = mr.resolveMaterialPath(GlobalVariable.CURRENT_TESTCASE_ID, "CURA_AppointmentConfirmation.png")
+Path png4 = mr.resolveMaterialPath(GlobalVariable.CURRENT_TESTCASE_ID, "4 CURA_AppointmentConfirmation.png")
 WebUI.takeScreenshot(png4.toFile().toString())
 
-
+// click the "Go to Homepage" button
 WebUI.click(findTestObject('Page_AppointmentConfirmation/a_Go to Homepage'))
 
-// ここでホーム・ページに遷移
 
+// make sure we are transfered to the CuraHomepage
 WebUI.verifyElementPresent(findTestObject('Page_CuraHomepage/a_Make Appointment'),
 	10, FailureHandling.STOP_ON_FAILURE)
 
 // takes Screenshot of the Homepage revisited
-Path png5 = mr.resolveMaterialPath(GlobalVariable.CURRENT_TESTCASE_ID, "CURA_Homepage_revisited.png")
+Path png5 = mr.resolveMaterialPath(GlobalVariable.CURRENT_TESTCASE_ID, "5 CURA_Homepage_revisited.png")
 WebUI.takeScreenshot(png5.toFile().toString())
 
-
+// Bye
 WebUI.closeBrowser()

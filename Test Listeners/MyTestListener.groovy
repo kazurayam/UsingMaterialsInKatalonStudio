@@ -8,6 +8,7 @@ import com.kms.katalon.core.annotation.BeforeTestSuite
 import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.context.TestCaseContext
 import com.kms.katalon.core.context.TestSuiteContext
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import internal.GlobalVariable as GlobalVariable
 
@@ -38,14 +39,17 @@ class MyTestListener {
 	 */
 	@BeforeTestSuite
 	def beforeTestSuite(TestSuiteContext testSuiteContext) {
+		
 		// prepare instance of MaterialRepository
 		// The directory 'Materials' will be created if not present by the MaterialRepository
 		MaterialRepository mr = MaterialRepositoryFactory.createInstance(materialsDir)
 		
 		// Find out the Test Suite ID and Test Suite Timestamp
 		String testSuiteId = testSuiteContext.getTestSuiteId()
+		WebUI.comment(">>> testSuiteId=${testSuiteId}")
 		Path reportDir = Paths.get(RunConfiguration.getReportFolder())
 		String testSuiteTimestamp = reportDir.getFileName().toString()    // e.g., '20180618_165141'
+		WebUI.comment(">>> testSuiteTimestamp=${testSuiteTimestamp}")
 		
 		// tell the MaterialRespository of the current Test Suite
 		mr.putCurrentTestSuite(testSuiteId, testSuiteTimestamp)
