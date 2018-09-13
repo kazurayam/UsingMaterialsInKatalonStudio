@@ -24,7 +24,7 @@ With the `Materials` library your test script in Katalon Studio can resolve the 
 
 For example,
 
-`/UsingMaterialsInKatalonStudio/Materials/TS07_visit a web site/20180913_093512/TC07_visiting a web site/1 CURA_Homepage.png`
+`./Materials/TS07_visit a web site/20180913_093512/TC07_visiting a web site/1 CURA_Homepage.png`
 
 
 
