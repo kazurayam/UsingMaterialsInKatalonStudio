@@ -35,12 +35,12 @@ For example,
 
 `${projectDir}/Drivers/Materials-0.17.jar` is bundled in this project.
 
-The ['Materials'](https://github.com/kazurayam/Materials) project does not have public Maven Repository from which you can download the distributable jar files. Wait for it for some time ...
+The ['Materials'](https://github.com/kazurayam/Materials) project does not yet have a public Maven Repository from which you can download distributable jar files. Wait for it for some time ...
 
-You can clone the  ['Materials'](https://github.com/kazurayam/Materials) project onto your PC and build the project by executing following command in commandline:
+You can clone the  ['Materials'](https://github.com/kazurayam/Materials) project onto your PC and build the project, provided that you have JDK 8 installed, by executing following command in commandline:
 
 ```
-$ cd materials
+$ cd ${MaterialsProjectDir}
 $ git checkout master
 $ ./gradlew jar
 ```
@@ -59,12 +59,12 @@ The test case script is [here](Scripts/TC01_starter/Script1536633564054.groovy)
 
 ### Description
 
-This test case takes a screenshot of Web page `http://demoaut.katalon.com` and save the image into a file at  `${projectDir}/tmp/TC01_screenshot.png`.
+This test case takes a screenshot of Web page `http://demoaut.katalon.com` and save the image into a file at  `${UsingMaterialsInKatalonStudio}/tmp/TC01_screenshot.png`.
 
 ### How to run it
 
-You can run it in Katalon Studio:
-1. select and open the test case `TC01_starter` in the Katalon Studio's Test Explorer pane.
+You can run it as usual in Katalon Studio:
+1. select and open the test case `TC01_starter` in the Katalon Studio's Tests Explorer pane.
 2. click the run button (a green arrow in the tool bar): ![run_TC1](docs/run_TC01.png)
 
 ### Output
@@ -80,10 +80,14 @@ tmp
 
 ### Note
 
-- The `TC01_starter` shows that you have to explicitly specify the file path where to save the screenshot.
+- The `TC01_starter` shows that you have to explicitly specify the file path where to save the screenshot like this:
+```
+Path pngFile = tmpDir.resolve('TC01_screenshot.png')
+WebUI.takeScreenshot(pngFile.toFile().toString())
+```
 - The `TC01_starter` script does not depend on the `Materials` library at all. This test case is the starting point. From now on, we will modify the code step-by-step to make use of the `Materials` feature.
-- This test case newly creates a directory under under the project directory: `UsingMaterialsInKatalonStudio/tmp`. Unfortunately Katalon Studio GUI does not allow you to view the `tmp` directory. Instead you need to use other tools (Windows Explorer, Mac Finder, or Terminal, Emacs, vim, Atom, etc).
-- In the `TC01_starter` script, `java.nio.Path`, `java.nio.Paths` and `java.nio.Files` are used extensively.
+- This test case newly creates a directory under under the project directory: `UsingMaterialsInKatalonStudio/tmp`. Unfortunately Katalon Studio GUI does not allow you to view the added `tmp` directory. Instead you need to use other tools (Windows Explorer, Mac Finder, or Terminal, Emacs, vim, Atom, etc).
+- In the `TC01_starter` script, `java.nio.Path`, `java.nio.Paths` and `java.nio.Files` are used extensively. This is Java 8 way of dealing with file paths.
 
 
 ## Test Case `TC02_MaterialRepository`
