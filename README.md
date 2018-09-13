@@ -7,6 +7,9 @@ This is a [Katalon Studio](https://www.katalon.com/) project for demonstration p
 
 This project was developed using Katalon Studio 5.7.0.
 
+In this 'UsingMaterialsInKatalonStudio' project, I will show you step by step how to code in Katalon Studio making use of the ['Materials'](https://github.com/kazurayam/Materials) library. The last of examples will output a file tree like this:
+![TSC01_marked](docs/TSC10_marked.png)
+
 # Problem to solve
 
 I have developed another project named ['Materials'](https://github.com/kazurayam/Materials). The Materials project is developed in Groovy language, provides a jar file. The jar file Materials-x.x.jar is supposed to be imported into a Katalon Studio project as one of the [External library](https://docs.katalon.com/display/KD/External+Libraries).
@@ -23,8 +26,6 @@ For example,
 
 `/UsingMaterialsInKatalonStudio/Materials/TS07_visit a web site/20180913_093512/TC07_visiting a web site/1 CURA_Homepage.png`
 
-In this 'UsingMaterialsInKatalonStudio' project, I will show you step by step how to code in Katalon Studio making use of the Materials library. The last of examples will output a file tree like this:
-![TSC01_marked](docs/TSC10_marked.png)
 
 
 # How to set up
