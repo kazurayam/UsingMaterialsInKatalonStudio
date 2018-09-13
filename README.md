@@ -25,11 +25,24 @@ The UsingMaterialsInKatalonStudio project
 
 ## Test Case `TC01_starter`
 
+### Source
+
 The test case script is [here](Scripts/TC01_starter/Script1536633564054.groovy)
 
-This test case takes screenshot of a Web page `http://demoaut.katalon.com` and save the image into a file at `<project dir>/tmp/TC1.png`.
+### Description
 
-Running this test case will result in the following tree:
+This test case takes a screenshot of Web page `http://demoaut.katalon.com` and save the image into a file at  `${projectDir}/tmp/TC1.png`.
+
+### How to run it
+
+You can run it in Katalon Studio:
+1. select and open the test case `TC01_starter` in the Katalon Studio's Test Explorer pane.
+2. click the run button (a green arrow in the tool bar): ![run_TC1](docs/run_TC01.png)
+
+### Output
+
+Running the test case will result in a file tree as follows:
+
 ```
 $ cd UsingMaterialsInKatalonStudio/
 $ tree tmp
@@ -37,7 +50,11 @@ tmp
 └── TC01_screenshot.png
 ```
 
-Note that `java.nio.Path`, `java.nio.Paths` and `java.nio.Files` are used extensively. These classes helps making tidy programs that makes local file I/O.
+### Note
+
+- In the `TC01_starter` script, `java.nio.Path`, `java.nio.Paths` and `java.nio.Files` are used extensively.
+- The `TC01_starter` script does not depend on the `Materials` library at all. This test case is the starting point.
+- This test case newly creates a directory under under the project directory: `UsingMaterialsInKatalonStudio/tmp`. Unfortunately Katalon Studio GUI does not allow you to view the `tmp` directory. Instead you need to use other tools (Windows Explorer, Mac Finder, or Terminal).
 
 ## Test Case `TC02_MaterialRepository`
 
