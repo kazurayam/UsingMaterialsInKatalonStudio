@@ -1,6 +1,23 @@
 Using Materials in Katalon Studio
 =====================================
 
+# What is this?
+
+This is a [Katalon Studio](https://www.katalon.com/) project for demonstration purpose. You can clone this out to your PC and run it with your Katalon Studio.
+
+This project was developed using Katalon Studio 5.7.0.
+
+
+
+
+![TSC01_marked](docs/TSC10_marked.png)
+
+
+# How to set up
+
+The UsingMaterialsInKatalonStudio project
+
+
 # Sample Codes
 
 ## [TC01_starter](Scripts/TC1/Script1536558958620.groovy)
@@ -31,7 +48,7 @@ Materials
             └── TC02_screenshot.png
 ```
 
-## [TC03_subdirectories under testCaseName]
+## [TC03_subdirectories under testCaseName](Scripts/TC03_subdirectories under testCaseName/Script1536642359919.groovy)
 
 ```
 $ tree Materials
@@ -47,7 +64,7 @@ Materials
                     └── TC03_screenshot.png
 ```
 
-## [TC04_URL-based filename]
+## [TC04_URL-based filename](Scripts/TC04_URL-based filename/Script1536642448370.groovy)
 
 ```
 $ tree Materials
@@ -61,7 +78,7 @@ Materials
 
 ```
 
-## [TC05_GlobalVariable.CURRNET_TESTCASE_ID]
+## [TC05_GlobalVariable.CURRNET_TESTCASE_ID](Scripts/TC05_GlobalVariable.CURRENT_TESTCASE_ID/Script1536640253323.groovy)
 
 ```
 :UsingMaterialsInKatalonStudio [master]$ tree Materials
@@ -72,7 +89,7 @@ Materials
             └── TC05_screenshot.png
 ```
 
-## [TC06_GlobalVariable.MATERIAL_REPOSITORY]
+## [TC06_GlobalVariable.MATERIAL_REPOSITORY](Scripts/TC06_GlobalVariable.MATERIAL_REPOSITORY/Script1536640238920.groovy)
 
 ```
 $ tree Materials
@@ -83,7 +100,7 @@ Materials
             └── TC06_screenshot.png
 ```
 
-## [TC07_visiting a web site]
+## [TC07_visiting a web site](Scripts/TC07_visiting a web site/Script1536650683310.groovy)
 
 ```
 $ tree Materials
@@ -98,7 +115,7 @@ Materials
             └── CURA_Login.png
 ```
 
-## [TC08_makeIndex]
+## [TC08_makeIndex](Scripts/TC08_makeIndex/Script1536651022281.groovy)
 
 ```
 $ tree Materials
@@ -114,3 +131,12 @@ Materials
 └── index.html
 
 ```
+
+## [TSC09_visit a web site and make index]()
+
+![TSC09](docs/TSC09.png)
+
+
+## [TSC10_visit 2 environments]()
+
+![TSC09](docs/TSC10_marked.png)
