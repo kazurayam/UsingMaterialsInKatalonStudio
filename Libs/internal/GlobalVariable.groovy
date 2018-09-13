@@ -14,12 +14,16 @@ import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 public class GlobalVariable {
      
     /**
-     * <p>Profile default : Method annotated with @BeforeTestCase in TestListener should set the value</p>
+     * <p>Profile default : Method annotated with @BeforeTestCase in TestListener should set the value
+Profile development : Method annotated with @BeforeTestCase in TestListener should set the value
+Profile production : Method annotated with @BeforeTestCase in TestListener should set the value</p>
      */
     public static Object CURRENT_TESTCASE_ID
      
     /**
-     * <p>Profile default : instance of com.kazurayam.materials.MaterialRepository</p>
+     * <p>Profile default : instance of com.kazurayam.materials.MaterialRepository
+Profile development : instance of com.kazurayam.materials.MaterialRepository
+Profile production : instance of com.kazurayam.materials.MaterialRepository</p>
      */
     public static Object MATERIAL_REPOSITORY
      
@@ -42,6 +46,8 @@ public class GlobalVariable {
     static {
         def allVariables = [:]        
         allVariables.put('default', ['CURRENT_TESTCASE_ID' : '', 'MATERIAL_REPOSITORY' : null, 'Hostname' : 'demoaut.katalon.com', 'Username' : 'John Doe', 'Password' : 'ThisIsNotAPassword'])
+        allVariables.put('development', allVariables['default'] + ['CURRENT_TESTCASE_ID' : '', 'MATERIAL_REPOSITORY' : null, 'Hostname' : 'demoaut-mimic.kazurayam.com', 'Username' : 'John Doe', 'Password' : 'ThisIsNotAPassword'])
+        allVariables.put('production', allVariables['default'] + ['CURRENT_TESTCASE_ID' : '', 'MATERIAL_REPOSITORY' : null, 'Hostname' : 'demoaut.katalon.com', 'Username' : 'John Doe', 'Password' : 'ThisIsNotAPassword'])
         
         String profileName = RunConfiguration.getExecutionProfile()
         

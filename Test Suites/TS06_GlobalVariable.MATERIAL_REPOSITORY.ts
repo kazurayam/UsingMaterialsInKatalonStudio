@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestSuiteEntity>
    <description></description>
-   <name>TS07</name>
+   <name>TS06_GlobalVariable.MATERIAL_REPOSITORY</name>
    <tag></tag>
    <isRerun>false</isRerun>
-   <lastRun>2018-09-11T16:26:34</lastRun>
+   <lastRun>2018-09-11T15:55:50</lastRun>
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>30</pageLoadTimeout>
    <pageLoadTimeoutDefault>true</pageLoadTimeoutDefault>
    <rerunFailedTestCasesOnly>false</rerunFailedTestCasesOnly>
-   <testSuiteGuid>f1c348a6-4462-40ae-8592-dac51e43e2cf</testSuiteGuid>
+   <testSuiteGuid>c46c943d-a5d1-41e9-91f7-be841ab9b48d</testSuiteGuid>
    <testCaseLink>
-      <guid>afa3757d-b10d-4fa1-b611-26d254f7cda5</guid>
+      <guid>a12206e9-c9e3-4b23-8a44-fabb9a1eb9e4</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/TC07_visiting a web site</testCaseId>
+      <testCaseId>Test Cases/TC06_GlobalVariable.MATERIAL_REPOSITORY</testCaseId>
    </testCaseLink>
 </TestSuiteEntity>
