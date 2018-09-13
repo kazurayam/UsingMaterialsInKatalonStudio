@@ -19,7 +19,7 @@ By the term *Material* I mean any file created by test scripts on the fly. A typ
 
 WebDriver API and Katalon Studio provide sound support for taking screenshots, downloading files, getting API response. But they fall short of a primitive problem: **which path to save a file as?**
 
-Specifying a single file path is trivial. Say, 'C:\Users\me\tmp\screenshot.png' will be enough for one-time file. However if we are to make multiple *materials* repeatedly (10 times a day, for example) and if we are to review the *materials* after the test runs, then it becomes an itchy problem how to resolve appropriate paths for *materials*.
+Specifying a single file path is trivial. Say, 'C:\Users\me\tmp\screenshot.png' will be enough for one-time file. However if we are to make multiple *materials* repeatedly (10 times a day, for example) and **if we are to review the materials after the test runs**, then it becomes an itchy problem how to resolve appropriate paths for *materials*.
 
 The `Materials` library is designed to solve this problem. By calling methods provieded by `MaterialRepository`, a test script in Katalon Studio can resolve a path for a *material* in the following format:
 
