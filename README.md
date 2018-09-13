@@ -21,7 +21,7 @@ WebDriver API and Katalon Studio provide sound support for taking screenshots, d
 
 Specifying a single file path is trivial. Say, 'C:\Users\me\tmp\screenshot.png' will be enough for one-time file. However if we are to make multiple *materials* repeatedly (10 times a day, for example) and if we are to review the *materials* after the test runs, then it becomes an itchy problem how to resolve appropriate paths for *materials*.
 
-The `Materials` library is designed to solve this problem. A test script in Katalon Studio can resolve a path for a *material* in the following format:
+The `Materials` library is designed to solve this problem. By calling methods provieded by `MaterialRepository`, a test script in Katalon Studio can resolve a path for a *material* in the following format:
 
 `${projectDir}/Materials/${testSuiteName}/${testSuiteTimestamp}/${testCaseName}/${subdirs}/${fileName}`
 
