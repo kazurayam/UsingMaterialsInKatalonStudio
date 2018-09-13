@@ -9,7 +9,9 @@ This project was developed using Katalon Studio 5.7.0.
 
 I have developed another project named ['Materials'](https://github.com/kazurayam/Materials). The Materials project is developed in Groovy language, provides a jar file. The jar file Materials-x.x.jar is supposed to be imported into a Katalon Studio project as one of the [External library](https://docs.katalon.com/display/KD/External+Libraries).
 
-A term *Material* means
+By the term *Material* I mean any file created by the test scripts on the fly. A typical example of a *Material* is an image file which contains the screenshot of a Web page taken by a test case. Other examples of *Material* include any other types of file: a PDF file downloaded from a Web site, an Excel file created on the fly, or a JSON response for a request to some REST-API.
+
+The WebDriver API and Katalon Studio provide sound support for taking screenshots, downloading files, getting API response. *But they fall short of a primitive problem: in which path to save a file?* If we are to make a single file, specifying a path for it is a trivial task. However if we are to make multiple files repeatedly (10 times a day, for example) and if we are to review the files after the test runs, then it becomes an itchy problem how to resolve the path of *Material* files appropriately.
 
 
 
@@ -31,7 +33,7 @@ The test case script is [here](Scripts/TC01_starter/Script1536633564054.groovy)
 
 ### Description
 
-This test case takes a screenshot of Web page `http://demoaut.katalon.com` and save the image into a file at  `${projectDir}/tmp/TC1.png`.
+This test case takes a screenshot of Web page `http://demoaut.katalon.com` and save the image into a file at  `${projectDir}/tmp/TC01_screenshot.png`.
 
 ### How to run it
 
@@ -52,9 +54,11 @@ tmp
 
 ### Note
 
+- The `TC01_starter` shows that you have to explicitly specify the file path where to save the screenshot.
+- The `TC01_starter` script does not depend on the `Materials` library at all. This test case is the starting point. From now on, we will modify the code step-by-step to make use of the `Materials` feature.
+- This test case newly creates a directory under under the project directory: `UsingMaterialsInKatalonStudio/tmp`. Unfortunately Katalon Studio GUI does not allow you to view the `tmp` directory. Instead you need to use other tools (Windows Explorer, Mac Finder, or Terminal, Emacs, vim, Atom, etc).
 - In the `TC01_starter` script, `java.nio.Path`, `java.nio.Paths` and `java.nio.Files` are used extensively.
-- The `TC01_starter` script does not depend on the `Materials` library at all. This test case is the starting point.
-- This test case newly creates a directory under under the project directory: `UsingMaterialsInKatalonStudio/tmp`. Unfortunately Katalon Studio GUI does not allow you to view the `tmp` directory. Instead you need to use other tools (Windows Explorer, Mac Finder, or Terminal).
+
 
 ## Test Case `TC02_MaterialRepository`
 
