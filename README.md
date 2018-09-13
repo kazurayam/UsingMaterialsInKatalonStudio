@@ -8,19 +8,20 @@ This is a [Katalon Studio](https://www.katalon.com/) project for demonstration p
 This project was developed using Katalon Studio 5.7.0.
 
 In this 'UsingMaterialsInKatalonStudio' project, I will show you step by step how to code in Katalon Studio making use of the ['Materials'](https://github.com/kazurayam/Materials) library. The last of examples will output a file tree like this:
+
 ![TSC01_marked](docs/TSC10_marked.png)
 
 # Problem to solve
 
 I have developed another project named ['Materials'](https://github.com/kazurayam/Materials). The Materials project is developed in Groovy language, provides a jar file. The jar file Materials-x.x.jar is supposed to be imported into a Katalon Studio project as one of the [External library](https://docs.katalon.com/display/KD/External+Libraries).
 
-By the term *Material* I mean any file created by the test scripts on the fly. A typical example of a *Material* is an image file which contains the screenshot of a Web page taken by a test case. Other examples of *Material* include any other types of file: a PDF file downloaded from a Web site, an Excel file created on the fly, or a JSON response for a request to some REST-API.
+By the term *Material* I mean any file created by test scripts on the fly. A typical example of a *Material* is an image file which contains the screenshot of a Web page taken by a test case. Other examples of *Material* include other types of file: a PDF file downloaded from Web site, an Excel file created by test script on the fly, or a JSON response from REST-API call.
 
-The WebDriver API and Katalon Studio provide sound support for taking screenshots, downloading files, getting API response. But they fall short of a primitive problem: **which path to save a file as?**
+WebDriver API and Katalon Studio provide sound support for taking screenshots, downloading files, getting API response. But they fall short of a primitive problem: **which path to save a file as?**
 
-Specifying a single one-time path is trivial. Say, 'C:\Users\me\tmp\screenshot.png' is enough. However if we are to make multiple files repeatedly (10 times a day, for example) and if we want to review the files after the test runs, then it becomes an itchy problem how to resolve the path of *Material* files appropriately.
+Specifying a single file path is trivial. Say, 'C:\Users\me\tmp\screenshot.png' will be enough for one-time file. However if we are to make multiple *materials* repeatedly (10 times a day, for example) and if we are to review the *materials* after the test runs, then it becomes an itchy problem how to resolve appropriate paths for *materials*.
 
-With the `Materials` library your test script in Katalon Studio can resolve the file path in such a format:
+The `Materials` library is designed to solve this problem. A test script in Katalon Studio can resolve a path for a *material* in the following format:
 
 `${projectDir}/Materials/${testSuiteName}/${testSuiteTimestamp}/${testCaseName}/${subdirs}/${fileName}`
 
@@ -32,10 +33,23 @@ For example,
 
 # How to set up
 
-The UsingMaterialsInKatalonStudio project
+`${projectDir}/Drivers/Materials-0.17.jar` is bundled in this project.
 
+The ['Materials'](https://github.com/kazurayam/Materials) project does not have public Maven Repository from which you can download the distributable jar files. Wait for it for some time ...
 
-# Sample Codes
+You can clone the  ['Materials'](https://github.com/kazurayam/Materials) project onto your PC and build the project by executing following command in commandline:
+
+```
+$ cd materials
+$ git checkout master
+$ ./gradlew jar
+```
+
+You will find `Materials-x.x.jar` file in `${MaterialsProjectDir}/build/libs` directory. You can import the jar file into your Katalon Studio project as an [External library](https://docs.katalon.com/display/KD/External+Libraries).
+
+# Description of codes
+
+I will describe all test scripts one by one.
 
 ## Test Case `TC01_starter`
 
