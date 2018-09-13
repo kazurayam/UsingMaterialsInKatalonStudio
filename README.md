@@ -25,7 +25,7 @@ The UsingMaterialsInKatalonStudio project
 
 ## Test Case `TC01_starter`
 
-The test case script is [here](Scripts/TC1_starter/Script1536633564054.groovy)
+The test case script is [here](Scripts/TC01_starter/Script1536633564054.groovy)
 
 This test case takes screenshot of a Web page `http://demoaut.katalon.com` and save the image into a file at `<project dir>/tmp/TC1.png`.
 
