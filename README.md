@@ -7,9 +7,7 @@ This is a [Katalon Studio](https://www.katalon.com/) project for demonstration p
 
 This project was developed using Katalon Studio 5.7.0.
 
-In this 'UsingMaterialsInKatalonStudio' project, I will show you step by step how to code in Katalon Studio making use of the ['Materials'](https://github.com/kazurayam/Materials) library. The last of examples will output a file tree like this:
-
-![TSC01_marked](docs/TSC10_marked.png)
+In this project, I will show you step by step how to code in Katalon Studio making use of the ['Materials'](https://github.com/kazurayam/Materials) library.
 
 # Problem to solve
 
@@ -30,6 +28,9 @@ The [`Materials`](https://github.com/kazurayam/Materials) library provides `com.
 For example,
 
 `./Materials/TS07_visit a web site/20180913_093512/TC07_visiting a web site/1 CURA_Homepage.png`
+
+The last example will output a file tree like this:
+![TSC10_marked](docs/TSC10_marked.png)
 
 
 # How to set up
