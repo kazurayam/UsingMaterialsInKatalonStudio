@@ -13,22 +13,23 @@ In this 'UsingMaterialsInKatalonStudio' project, I will show you step by step ho
 
 # Problem to solve
 
-I have developed another project named ['Materials'](https://github.com/kazurayam/Materials). The Materials project is developed in Groovy language, provides a jar file. The jar file Materials-x.x.jar is supposed to be imported into a Katalon Studio project as one of the [External library](https://docs.katalon.com/display/KD/External+Libraries).
+I have developed another project on GitHub named ['Materials'](https://github.com/kazurayam/Materials). The Materials project is developed in Groovy language, provides a jar file. The jar file Materials-x.x.jar is supposed to be imported into a Katalon Studio project as one of the [External library](https://docs.katalon.com/display/KD/External+Libraries).
 
-By the term *Material* I mean any file created by test scripts on the fly. A typical example of a *Material* is an image file which contains the screenshot of a Web page taken by a test case. Other examples of *Material* include other types of file: a PDF file downloaded from Web site, an Excel file created by test script on the fly, or a JSON response from REST-API call.
+By the term *Material* I mean any file created by test scripts on the fly. A typical example of a *Material* is a PNG file as  screenshot of a Web page. Other examples of *Material* include: PDF file downloaded from Web site, Excel file created by test script on the fly, or XML/JSON response from RESTful API call.
 
-WebDriver API and Katalon Studio provide sound support for taking screenshots, downloading files, getting API response. But they fall short of a primitive problem: **which path to save a file as?**
+WebDriver API and Katalon Studio provide sound support for taking screenshots, downloading files, getting API response. But those fall short of a primitive problem: **which path to save a file as?**
 
-Specifying a single file path is trivial. Say, 'C:\Users\me\tmp\screenshot.png' will be enough for one-off file. However if we are to make multiple *materials* repeatedly (10 times a day, for example) and **if we are to reuse the materials after the test runs**, then it becomes an itchy problem how to resolve appropriate paths for *materials*.
+Specifying a one-off file path is trivial. Say, 'C:\Users\me\tmp\screenshot.png' would be fine. However if we are to make dozens of *materials* repeatedly (10 times a day, for example) and **if we are to reuse the materials after the test runs**, then it becomes an itchy problem how to resolve paths appropriate for *materials*. For example, I want to take 30 screenshots of the development environment of my web site as well as the production environment. After taking screenshots, I want to compare 30 pairs of images to find out if any difference found. In order to reuse them, the file paths of 30 * 2 screenshots needs to be well-designed and well-controlled by a supporring library.
 
-The `Materials` library is designed to solve this problem. By calling methods provieded by `MaterialRepository`, a test script in Katalon Studio can resolve a path for a *material* in the following format:
+# Solution
+
+The [`Materials`](https://github.com/kazurayam/Materials) library provides `com.kazurayam.materials.MaterialRepository` class. A test script in Katalon Studio can ask `MaterialRepository` to resolve path for a *material*. The path would be in the format as follows:
 
 `${projectDir}/Materials/${testSuiteName}/${testSuiteTimestamp}/${testCaseName}/${subdirs}/${fileName}`
 
 For example,
 
 `./Materials/TS07_visit a web site/20180913_093512/TC07_visiting a web site/1 CURA_Homepage.png`
-
 
 
 # How to set up
@@ -53,21 +54,21 @@ I will describe all test scripts one by one.
 
 ## Test Case `TC01_starter`
 
-### Source
+### source
 
 The test case script is [here](Scripts/TC01_starter/Script1536633564054.groovy)
 
-### Description
+### description
 
 This test case takes a screenshot of Web page `http://demoaut.katalon.com` and save the image into a file at  `${UsingMaterialsInKatalonStudio}/tmp/TC01_screenshot.png`.
 
-### How to run it
+### how to run it
 
 You can run it as usual in Katalon Studio:
 1. select and open the test case `TC01_starter` in the Katalon Studio's Tests Explorer pane.
 2. click the run button (a green arrow in the tool bar): ![run_TC1](docs/run_TC01.png)
 
-### Output
+### output
 
 Running the test case will result in a file tree as follows:
 
@@ -78,23 +79,54 @@ tmp
 └── TC01_screenshot.png
 ```
 
-### Note
+### notes
 
-- The `TC01_starter` shows that you have to explicitly specify the file path where to save the screenshot like this:
+1. The `TC01_starter` shows that you have to explicitly specify the file path where to save the screenshot like this:
 ```
 Path pngFile = tmpDir.resolve('TC01_screenshot.png')
 WebUI.takeScreenshot(pngFile.toFile().toString())
 ```
-- The `TC01_starter` script does not depend on the `Materials` library at all. This test case is the starting point. From now on, we will modify the code step-by-step to make use of the `Materials` feature.
-- This test case newly creates a directory under under the project directory: `UsingMaterialsInKatalonStudio/tmp`. Unfortunately Katalon Studio GUI does not allow you to view the added `tmp` directory. Instead you need to use other tools (Windows Explorer, Mac Finder, or Terminal, Emacs, vim, Atom, etc).
-- In the `TC01_starter` script, `java.nio.Path`, `java.nio.Paths` and `java.nio.Files` are used extensively. This is Java 8 way of dealing with file paths.
+1. The `TC01_starter` script does not depend on the `Materials` library at all. This test case is the starting point. From now on, we will modify the code step-by-step to make use of the `Materials` feature.
+1. This test case newly creates a directory under under the project directory: `UsingMaterialsInKatalonStudio/tmp`. Unfortunately Katalon Studio GUI does not allow you to view the added `tmp` directory. Instead you need to use other tools (Windows Explorer, Mac Finder, or Terminal, Emacs, vim, Atom, etc).
+1. In the `TC01_starter` script, `java.nio.Path`, `java.nio.Paths` and `java.nio.Files` are used extensively. This is Java 8 way of dealing with file paths.
 
 
 ## Test Case `TC02_MaterialRepository`
 
+### source
 The test case script is  [here](Scripts/TC02_MaterialRepository/Script1536642272611.groovy).
 
+Fragment:
+```
+import com.kazurayam.materials.MaterialRepository
+import com.kazurayam.materials.MaterialRepositoryFactory
+```
+```
+// descide in which directory we will create a MaterialRepository
+Path materialsDir = Paths.get(RunConfiguration.getProjectDir()).resolve('Materials')
+
+// create an instance of MaterialRepository
+MaterialRepository mr = MaterialRepositoryFactory.createInstance(materialsDir)
+
+// resolve the location of PNG file to save the screenshot
+Path pngFile = mr.resolveMaterialPath('TC02_MaterialRepository', 'TC02_screenshot.png')
+```
+
+1.
+
+### description
+
+This test case takes a screenshot of Web page `http://demoaut.katalon.com` and save the image into a file at  `${UsingMaterialsInKatalonStudio}/Materials/_/_/TC02_MaterialRepository/TC02_screenshot.png`.
+
+### how to run it
+
+In Katalon Studio GUI, open the test case `TC02_MaterialRepository` and run it by clicking the run button  
+![run](docs/run_button.png)
+
+### output
+
 Running this test case will result in the following tree:
+
 ```
 $ tree Materials
 Materials
@@ -103,6 +135,12 @@ Materials
         └── TC02_MaterialRepository
             └── TC02_screenshot.png
 ```
+
+### notes
+
+1.
+1. `resolveMaterialPath(String testCaseName, String fileName)` resolves the path for a *material*. A File of length==0 will be created.
+1.  
 
 ## Test Case `TC03_subdirectories under testCaseName`
 
@@ -167,40 +205,17 @@ Materials
             └── TC06_screenshot.png
 ```
 
-## Test Case `TC07_visiting a web page`
+## Test Suite `TS06_GlobalVariable.MATERIAL_REPOSITORY`
+
+```
+
+```
+
+## Test Case `TS07_visit a web page`
 
 The test case script is [here](Scripts/TC07_visiting a web site/Script1536650683310.groovy).
 
 ```
-$ tree Materials
-Materials
-└── _
-    └── _
-        └── TC07_visiting a web site
-            ├── CURA_Appointment.png
-            ├── CURA_AppointmentConfirmation.png
-            ├── CURA_Homepage.png
-            ├── CURA_Homepage_revisited.png
-            └── CURA_Login.png
-```
-
-## Test Case `TC08_makeIndex`
-
-The test case script is [here](Scripts/TC08_makeIndex/Script1536651022281.groovy).
-
-```
-$ tree Materials
-Materials
-├── _
-│   └── _
-│       └── TC08_makeIndex
-│           ├── CURA_Appointment.png
-│           ├── CURA_AppointmentConfirmation.png
-│           ├── CURA_Homepage.png
-│           ├── CURA_Homepage_revisited.png
-│           └── CURA_Login.png
-└── index.html
-
 ```
 
 
@@ -209,6 +224,7 @@ Materials
 
 ![TSC09](docs/TSC09.png)
 
+The test case script is [here: TC08_makeIndex](Scripts/TC08_makeIndex/Script1536651022281.groovy).
 
 ## Test Suite Collection `TSC10_visit 2 environments`
 

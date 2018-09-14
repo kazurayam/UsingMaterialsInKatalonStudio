@@ -4,7 +4,7 @@
    <name>TS07_visit a web site</name>
    <tag></tag>
    <isRerun>false</isRerun>
-   <lastRun>2018-09-13T09:35:13</lastRun>
+   <lastRun>2018-09-14T09:44:14</lastRun>
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>30</pageLoadTimeout>

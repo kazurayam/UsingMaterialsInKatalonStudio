@@ -13,7 +13,7 @@ import com.kazurayam.materials.MaterialRepositoryFactory
 
 /**
  * TC02_introducing_MaterialRespository
- * 
+ *
  * Open http://demoaut.katalon.com, take screenshot and save it into a file.
  * The location of the screenshot file is resolved by MaterialRespository.
  */
@@ -26,12 +26,13 @@ WebUI.verifyElementPresent(
 	findTestObject('Page_CuraHomepage/a_Make Appointment'),
 	10, FailureHandling.STOP_ON_FAILURE)
 
-// prepare instance of MaterialRepository
+// descide in which directory we will create a MaterialRepository
 Path materialsDir = Paths.get(RunConfiguration.getProjectDir()).resolve('Materials')
-// The directory 'Materials' will be created if not present by the MaterialRepository
+
+// create an instance of MaterialRepository
 MaterialRepository mr = MaterialRepositoryFactory.createInstance(materialsDir)
 
-// resolve the location of PNG file to save the screenshot
+// resolve the location of a PNG file and save the screenshot into it
 Path pngFile = mr.resolveMaterialPath('TC02_MaterialRepository', 'TC02_screenshot.png')
 // --> pngFile will be <project dir>/Materials/_/_/<test case name>/<file name>
 // -->           e.g., <project dir>/Materials/_/_/TC02_MaterialRepository/TC2_screenshot.png
