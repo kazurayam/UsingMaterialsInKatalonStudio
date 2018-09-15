@@ -7,21 +7,23 @@ This is a [Katalon Studio](https://www.katalon.com/) project for demonstration p
 
 This project was developed using Katalon Studio 5.7.0.
 
-In this project, I will show you step by step how to code in Katalon Studio making use of the ['Materials'](https://github.com/kazurayam/Materials) library.
+In this project, I will show you step by step how to write test scripts in Katalon Studio making use of  ['Materials'](https://github.com/kazurayam/Materials) library, my another GitHub project.
 
 # Problem to solve
 
-I have developed another project on GitHub named ['Materials'](https://github.com/kazurayam/Materials). The Materials project is developed in Groovy language, provides a jar file. The jar file Materials-x.x.jar is supposed to be imported into a Katalon Studio project as one of the [External library](https://docs.katalon.com/display/KD/External+Libraries).
+I have developed another project on GitHub named ['Materials'](https://github.com/kazurayam/Materials). The project is developed in Groovy language, provides a jar file. The jar file Materials-x.x.jar is supposed to be imported into Katalon Studio projects as one of the [External library](https://docs.katalon.com/display/KD/External+Libraries).
 
-By the term *Material* I mean any file created by test scripts on the fly. A typical example of a *Material* is a PNG file as  screenshot of a Web page. Other examples of *Material* include: PDF file downloaded from Web site, Excel file created by test script on the fly, or XML/JSON response from RESTful API call.
+What is a *material*? By the term *Material* I mean any file created by test scripts on the fly. A typical example of a *Material* is a screenshot image of a web page. Other examples of *Material* include: PDF file downloaded from web site, Excel file created by test script, or XML/JSON response from RESTful API call.
 
-WebDriver API and Katalon Studio provide sound support for taking screenshots, downloading files, getting API response. But those fall short of a primitive problem: **which path to save a file as?**
+Selenium WebDriver and Katalon Studio provide sound support for interacting with web to take screenshots, to download files, to get API response. But their support falls short of a primitive problem: **which path to save a file as?**
 
-Specifying a one-off file path is trivial. Say, 'C:\Users\me\tmp\screenshot.png' would be fine. However if we are to make dozens of *materials* repeatedly (10 times a day, for example) and **if we are to reuse the materials after the test runs**, then it becomes an itchy problem how to resolve paths appropriate for *materials*. For example, I want to take 30 screenshots of the development environment of my web site as well as the production environment. After taking screenshots, I want to compare 30 pairs of images to find out if any difference found. In order to reuse them, the file paths of 30 * 2 screenshots needs to be well-designed and well-controlled by a supporring library.
+Specifying a one-off file path is trivial. Say, 'C:\Users\myself\tmp\sample_screenshot.png' would be fine. However if we are to make dozens of *materials* repeatedly (10 times a day, for example) and **if we are to reuse the files after the tests**, then it becomes an itchy problem how to resolve paths appropriate for *materials*.
+
+For example, I want to take 30 screenshots of my web app in both of the production environment and the development environment. After taking screenshots, I want to compare  pairs of images to find out if any difference found. I need to design the paths for those files. Therefore I need a class library which implements a designed respository for the files (*materials*).
 
 # Solution
 
-The [`Materials`](https://github.com/kazurayam/Materials) library provides `com.kazurayam.materials.MaterialRepository` class. A test script in Katalon Studio can ask `MaterialRepository` to resolve path for a *material*. The path would be in the format as follows:
+The [`Materials`](https://github.com/kazurayam/Materials) library provides the  `com.kazurayam.materials.MaterialRepository` class. A test script in Katalon Studio can ask `MaterialRepository` to resolve path for a *material*. The path would be in the format as follows:
 
 `${projectDir}/Materials/${testSuiteName}/${testSuiteTimestamp}/${testCaseName}/${subdirs}/${fileName}`
 
@@ -32,10 +34,13 @@ For example,
 The last example will output a file tree like this:
 ![TSC10_marked](docs/TSC10_marked.png)
 
+Also the `com.kazurayam.materials.MaterialRepository` class compiles `./Materials/index.html` file. This HTML file provides easy access to the files contained in the respository. The following picture shows an example of the index.
+![index](docs/index.png)
+![index_modal](docs/index_modal.png)
 
 # How to set up
 
-`${projectDir}/Drivers/Materials-0.17.jar` is bundled in this project.
+`${projectDir}/Drivers/Materials-0.17.jar` is already bundled in this demo project.
 
 The ['Materials'](https://github.com/kazurayam/Materials) project does not yet have a public Maven Repository from which you can download distributable jar files. Wait for it for some time ...
 
