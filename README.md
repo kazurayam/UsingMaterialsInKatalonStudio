@@ -13,13 +13,13 @@ In this project, I will show you step by step how to write test scripts in Katal
 
 I have developed another project on GitHub named ['Materials'](https://github.com/kazurayam/Materials). The project is developed in Groovy language, provides a jar file. The jar file Materials-x.x.jar is supposed to be imported into Katalon Studio projects as one of the [External library](https://docs.katalon.com/display/KD/External+Libraries).
 
-What is a *material*? By the term *Material* I mean any file created by test scripts on the fly. A typical example of a *Material* is a screenshot image of a web page. Other examples of *Material* include: PDF file downloaded from web site, Excel file created by test script, or XML/JSON response from RESTful API call.
+What is a *material*? By the term *Material* I mean any file created on the fly by test scripts. A typical example of a *Material* is a screenshot image of a web page. Other examples of *Material* include: PDF file downloaded from web site, Excel file created by test script, or XML/JSON response from RESTful API call.
 
-Selenium WebDriver and Katalon Studio provide sound support for interacting with web to take screenshots, to download files, to get API response. But their support falls short of a primitive problem: **which path to save a file as?**
+Selenium WebDriver and Katalon Studio provide sound support for interacting with web to take screenshots, to download files, to get API response. But their support falls short of a  related problem: **which path to save a file as?**
 
-Specifying a one-off file path is trivial. Say, 'C:\Users\myself\tmp\sample_screenshot.png' would be fine. However if we are to make dozens of *materials* repeatedly (10 times a day, for example) and **if we are to reuse the files after the tests**, then it becomes an itchy problem how to resolve paths appropriate for *materials*.
+Specifying a one-off file path is trivial. Say, `C:\Users\myself\tmp\sample_screenshot.png` would be fine. However if we are to make dozens of *materials* repeatedly and **if we are to reuse the files after the tests**, then it becomes an itchy problem how to resolve paths for all *materials* appropriately.
 
-For example, I want to take 30 screenshots of my web app in both of the production environment and the development environment. After taking screenshots, I want to compare  pairs of images to find out if any difference found. I need to design the paths for those files. Therefore I need a class library which implements a designed respository for the files (*materials*).
+For example, I want to take 30 screenshots of my web app in both of the production environment and the development environment. After taking screenshots, I want to compare  pairs of images to find out if any difference found. Then, I need to design the paths for those files and I need a class library which implements a designed respository for the files (*materials*) with intuitive access methods.
 
 # Solution
 
