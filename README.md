@@ -125,7 +125,7 @@ This test case takes a screenshot of Web page `http://demoaut.katalon.com` and s
 
 ### how to run it
 
-In Katalon Studio GUI, open the test case `TC02_MaterialRepository` and run it by clicking the run button  
+In Katalon Studio GUI, open the test case `TC02_MaterialRepository` and run it by clicking the run button
 ![run](docs/run_button.PNG)
 
 ### output
@@ -164,7 +164,7 @@ Please note that the 2nd argument to `resolveMaterialPath()` method call has pre
 
 ### how to run it
 
-In Katalon Studio GUI, open the test case `TC03_subdirectories under testCaseName` and run it by clicking the run button [run](docs/run_button.PNG)
+In Katalon Studio GUI, open the test case `TC03_subdirectories under testCaseName` and run it by clicking the run button  ![run](docs/run_button.PNG)
 
 ### output
 
