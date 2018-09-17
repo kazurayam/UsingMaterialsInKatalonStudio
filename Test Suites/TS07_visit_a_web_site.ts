@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestSuiteEntity>
    <description></description>
-   <name>TS07_visit a web site</name>
+   <name>TS07_visit_a_web_site</name>
    <tag></tag>
    <isRerun>false</isRerun>
    <lastRun>2018-09-15T07:28:42</lastRun>
@@ -15,6 +15,6 @@
       <guid>afa3757d-b10d-4fa1-b611-26d254f7cda5</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/TC07_visiting a web site</testCaseId>
+      <testCaseId>Test Cases/TC07_visiting_a_web_site</testCaseId>
    </testCaseLink>
 </TestSuiteEntity>

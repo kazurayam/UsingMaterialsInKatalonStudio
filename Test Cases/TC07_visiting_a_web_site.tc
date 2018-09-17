@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>TC03_subdirectories under testCaseName</name>
+   <name>TC07_visiting_a_web_site</name>
    <tag></tag>
    <comment></comment>
-   <testCaseGuid>d8627268-d9be-40ed-b007-feaacd6f5b2f</testCaseGuid>
+   <testCaseGuid>f08114f3-f95a-4fd9-8bad-4576e097f1a0</testCaseGuid>
 </TestCaseEntity>
