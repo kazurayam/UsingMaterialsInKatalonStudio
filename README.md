@@ -70,7 +70,7 @@ This test case takes a screenshot of Web page `http://demoaut.katalon.com` and s
 
 ### how to run it
 
-You can run it as usual in Katalon Studio:
+You can run it as an usual test case in Katalon Studio:
 1. select and open the test case `TC01_starter` in the Katalon Studio's Tests Explorer pane.
 2. click the run button (a green arrow in the tool bar): ![run_TC1](docs/run_TC01.png)
 
@@ -87,13 +87,14 @@ tmp
 
 ### notes
 
-1. The `TC01_starter` shows that you have to explicitly specify the file path where to save the screenshot like this:
+1. Following lines in `TC01_starter` shows that you have to explicitly specify the file path where to save the screenshot:
 ```
 Path pngFile = tmpDir.resolve('TC01_screenshot.png')
 WebUI.takeScreenshot(pngFile.toFile().toString())
 ```
 1. The `TC01_starter` script does not depend on the `Materials` library at all. This test case is the starting point. From now on, we will modify the code step-by-step to make use of the `Materials` feature.
-1. This test case newly creates a directory under under the project directory: `UsingMaterialsInKatalonStudio/tmp`. Unfortunately Katalon Studio GUI does not allow you to view the added `tmp` directory. Instead you need to use other tools (Windows Explorer, Mac Finder, or Terminal, Emacs, vim, Atom, etc).
+1. This test case newly creates a directory under the project directory like: `UsingMaterialsInKatalonStudio/tmp`.
+1. Unfortunately Katalon Studio GUI does not allow you to view the added `tmp` directory. Instead you need to use other tools (Windows Explorer, Mac Finder, or Terminal, Emacs, vim, Atom, etc).
 1. In the `TC01_starter` script, `java.nio.Path`, `java.nio.Paths` and `java.nio.Files` are used extensively. This is Java 8 way of dealing with file paths.
 
 
@@ -118,16 +119,14 @@ MaterialRepository mr = MaterialRepositoryFactory.createInstance(materialsDir)
 Path pngFile = mr.resolveMaterialPath('TC02_MaterialRepository', 'TC02_screenshot.png')
 ```
 
-1.
-
 ### description
 
-This test case takes a screenshot of Web page `http://demoaut.katalon.com` and save the image into a file at  `${UsingMaterialsInKatalonStudio}/Materials/_/_/TC02_MaterialRepository/TC02_screenshot.png`.
+This test case takes a screenshot of Web page `http://demoaut.katalon.com` and save the image into a file under the directory   `${UsingMaterialsInKatalonStudio}/Materials`. The file path is `Materials/_/_/TC02_MaterialRepository/TC02_screenshot.png`.
 
 ### how to run it
 
 In Katalon Studio GUI, open the test case `TC02_MaterialRepository` and run it by clicking the run button  
-![run](docs/run_button.png)
+![run](docs/run_button.PNG)
 
 ### output
 
@@ -144,15 +143,32 @@ Materials
 
 ### notes
 
-1.
-1. `resolveMaterialPath(String testCaseName, String fileName)` resolves the path for a *material*. A File of length==0 will be created.
-1.  
+1. `resolveMaterialPath(String testCaseName, String fileName)` resolves the path for a *material*. A File of length==0 will be created by this method call.
 
 ## Test Case `TC03_subdirectories under testCaseName`
+
+### source
 
 The test case script is
 [here](Scripts/TC03_subdirectories under testCaseName/Script1536642359919.groovy).
 
+Fragment:
+```
+Path pngFile = mr.resolveMaterialPath('TC03_subdirectories under testCaseName', 'subdirA/subdirA/TC03_screenshot.png')
+
+```
+
+### description
+
+Please note that the 2nd argument to `resolveMaterialPath()` method call has prefix `subdirA/subdirB/`. You can create sub-directories under the testCaseName directory.
+
+### how to run it
+
+In Katalon Studio GUI, open the test case `TC03_subdirectories under testCaseName` and run it by clicking the run button [run](docs/run_button.PNG)
+
+### output
+
+Running this test case will result in the following tree:
 
 ```
 $ tree Materials
