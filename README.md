@@ -150,7 +150,7 @@ Materials
 ### source
 
 The test case script is
-[here](Scripts/TC03_subdirectories under testCaseName/Script1536642359919.groovy).
+[here](Scripts/TC03_subdirectories%40under%40testCaseName/Script1536642359919.groovy).
 
 Fragment:
 ```
@@ -185,6 +185,8 @@ Materials
 ```
 
 ## Test Case `TC04_URL-based filename`
+
+### source
 
 The test case script is
 [here](Scripts/TC04_URL-based filename/Script1536642448370.groovy).
