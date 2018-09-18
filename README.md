@@ -72,7 +72,9 @@ I will describe all test scripts one by one.
 
 ## [Test Suite `TS06_GlobalVariable.MATERIAL_REPOSITORY`](./TS06_GlobalVariable.MATERIAL_REPOSITORY.md)
 
-## [Test Suite `TS07_visit_a_web_page`](./TS07_visit_a_web_page.md)
+## [Test Suite `TS07_visit_a_web_site`](./TS07_visit_a_web_site.md)
+
+## [Test Suite `TS08_makeIndex`](./TS08_makeIndex.md)
 
 ## [Test Suite Collection `TSC09_visit_a_web_site_and_make_index`](./TSC09_visit_a_web_site_and_make_index.md)
 

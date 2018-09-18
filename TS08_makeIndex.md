@@ -1,6 +1,6 @@
 ## Test Case `TS08_makeIndex`
 
-The test case script is [here](Scripts/TC07_visiting_a_web_site/Script1536650683310.groovy).
+The test case script is [here](Scripts/TC08_makeIndex/Script1536651022281.groovy).
 
 ```
 ```
