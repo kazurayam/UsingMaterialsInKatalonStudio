@@ -152,7 +152,7 @@ Materials
 ### source
 
 The test case script is
-[here](Scripts/TC03_subdirectories_under_testCaseName/Script1536642359919.groovy).
+[here](Scripts/TC03_subdirectories_under_testCaseName/Script1537147371115.groovy).
 
 Fragment:
 ```
@@ -162,7 +162,7 @@ Path pngFile = mr.resolveMaterialPath('TC03_subdirectories_under_testCaseName', 
 
 ### description
 
-Please note that the 2nd argument to `resolveMaterialPath()` method call has prefix `subdirA/subdirB/`. You can create sub-directories under the testCaseName directory.
+Please note that we specified the 2nd argument to `resolveMaterialPath()` method call to have a prefix `subdirA/subdirB/`. This allows you can create sub-directories under the testCaseName directory.
 
 ### how to run it
 
