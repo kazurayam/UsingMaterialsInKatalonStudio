@@ -32,11 +32,11 @@ For example,
 `./Materials/TS07_visit a web site/20180913_093512/TC07_visiting a web site/1 CURA_Homepage.png`
 
 One of the examples here will output a file tree like this:
-![TSC10_marked](docs/TSC10_marked.png)
+![TSC10_marked](docs/images/TSC10_marked.png)
 
 Also the `com.kazurayam.materials.MaterialRepository` class compiles `./Materials/index.html` file. This HTML file provides easy access to the files contained in the respository. The following picture shows an example of the index.
-![index](docs/index.png)
-![index_modal](docs/index_modal.png)
+![index](docs/images/index.png)
+![index_modal](docs/images/index_modal.png)
 
 # How to set up
 
@@ -72,7 +72,7 @@ This test case takes a screenshot of Web page `http://demoaut.katalon.com` and s
 
 You can run it as an usual test case in Katalon Studio:
 1. select and open the test case `TC01_starter` in the Katalon Studio's Tests Explorer pane.
-2. click the run button (a green arrow in the tool bar): ![run_TC1](docs/run_TC01.png)
+2. click the run button (a green arrow in the tool bar): ![run_TC1](docs/images/run_TC01.png)
 
 ### output
 
@@ -127,7 +127,7 @@ The test case `TC02_MaterialRepository` takes a screenshot of Web page `http://d
 ### how to run it
 
 In Katalon Studio GUI, open the test case `TC02_MaterialRepository` and run it by clicking the run button
-![run](docs/run_button.PNG)
+![run](docs/images/run_button.PNG)
 
 ### output
 
@@ -162,11 +162,11 @@ Path pngFile = mr.resolveMaterialPath('TC03_subdirectories_under_testCaseName', 
 
 ### description
 
-Please note that we specified the 2nd argument to `resolveMaterialPath()` method call to have a prefix `subdirA/subdirB/`. This allows you can create sub-directories under the testCaseName directory.
+Please note that we specified the 2nd argument to `resolveMaterialPath()` method call to have a prefix `subdirA/subdirB/`. This allows you to create sub-directories under the testCaseName directory.
 
 ### how to run it
 
-In Katalon Studio GUI, open the test case `TC03_subdirectories_under_testCaseName` and run it by clicking the run button  ![run](docs/run_button.PNG)
+In Katalon Studio GUI, open the test case `TC03_subdirectories_under_testCaseName` and run it by clicking the run button  ![run](docs/images/run_button.PNG)
 
 ### output
 
@@ -192,8 +192,28 @@ Materials
 ### source
 
 The test case script is
-[here](Scripts/TC04_URL-based_filename/Script1536642448370.groovy).
+[here](Scripts/TC04_URL-based_filename/Script1537147401510.groovy).
 
+Fragments:
+
+```
+String urlString = 'http://demoaut.katalon.com'
+
+...
+
+File pngFile = mr.resolveScreenshotPath('TC04_URL-based_filename', new URL(urlString))
+
+...
+
+pngFile = mr.resolveScreenshotPath('TC04_URL-based_filename', Paths.get('subdir'), new URL(urlString))
+```
+
+### description
+
+`MaterialRepository` provides another method `resolveScreenshotPath(String testCaseName, URL url)` and `resolveScreenshotPath(String testCaseName, Path subdir, URL url)`
+
+
+### output
 ```
 $ cd UsingMaterialsInKatalonStudio
 $ tree Materials
@@ -252,10 +272,10 @@ The test case script is [here](Scripts/TC07_visiting_a_web_site/Script1536650683
 
 ## Test Suite Collection `TSC09_visit_a_web_site_and_make_index`
 
-![TSC09](docs/TSC09.png)
+![TSC09](docs/images/TSC09.png)
 
 The test case script is [here: TC08_makeIndex](Scripts/TC08_makeIndex/Script1536651022281.groovy).
 
 ## Test Suite Collection `TSC10_visit_2 environments`
 
-![TSC09](docs/TSC10_marked.png)
+![TSC09](docs/images/TSC10_marked.png)
