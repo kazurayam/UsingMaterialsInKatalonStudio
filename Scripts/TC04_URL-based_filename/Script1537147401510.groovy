@@ -33,16 +33,16 @@ Path materialsDir = Paths.get(RunConfiguration.getProjectDir()).resolve('Materia
 MaterialRepository mr = MaterialRepositoryFactory.createInstance(materialsDir)
 
 // resolve the location of PNG file to save the screenshot
-Path pngFile = mr.resolveScreenshotPath('TC04_URL-based filename', new URL(urlString))
-// --> <project dir>/Materials/_/_/TC04_URL-based filename/http%3A%2F%2Fdemoaut.katalon.com.png
+Path pngFile = mr.resolveScreenshotPath('TC04_URL-based_filename', new URL(urlString))
+// --> <project dir>/Materials/_/_/TC04_URL-based_filename/http%3A%2F%2Fdemoaut.katalon.com.png
 // The parent directories of the pngFile will be automatically created.
 // The pngFile will be created with 0-bytes length.
 WebUI.takeScreenshot(pngFile.toFile().toString())
 // The pngFile will be stuffed with image bytes.
 
 // make one more file under sub-directory
-pngFile = mr.resolveScreenshotPath('TC04_URL-based filename', Paths.get('subdir'), new URL(urlString))
-// --> <project dir>/Materials/_/_/TC04_URL-based filename/subdir/http%3A%2F%2Fdemoaut.katalon.com.png
+pngFile = mr.resolveScreenshotPath('TC04_URL-based_filename', Paths.get('subdir'), new URL(urlString))
+// --> <project dir>/Materials/_/_/TC04_URL-based_filename/subdir/http%3A%2F%2Fdemoaut.katalon.com.png
 WebUI.takeScreenshot(pngFile.toFile().toString())
 
 // Good Bye

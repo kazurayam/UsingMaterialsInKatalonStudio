@@ -92,9 +92,9 @@ tmp
 Path pngFile = tmpDir.resolve('TC01_screenshot.png')
 WebUI.takeScreenshot(pngFile.toFile().toString())
 ```
-1. The `TC01_starter` script does not depend on the `Materials` library at all. This test case is the starting point. From now on, we will modify the code step-by-step to make use of the `Materials` feature.
-1. This test case newly creates a directory under the project directory like: `UsingMaterialsInKatalonStudio/tmp`.
-1. Unfortunately Katalon Studio GUI does not allow you to view the added `tmp` directory. Instead you need to use other tools (Windows Explorer, Mac Finder, or Terminal, Emacs, vim, Atom, etc).
+1. The `TC01_starter` script does not depend on the `Materials` library at all. This test case is the starting point. From now on, we will write new scripts slightly modifying previous example. The modifications will show how to make use of the `Materials` feature step by step.
+1. The test case `TC01_starter` newly creates a directory under the project directory like: `UsingMaterialsInKatalonStudio/tmp`.
+1. Katalon Studio GUI does not allow you to view the added `tmp` directory in its GUI. Instead you need to use other tools (Windows Explorer, Mac Finder, or Terminal, Emacs, vim, Atom, etc) to see the `tmp` contents.
 1. In the `TC01_starter` script, `java.nio.Path`, `java.nio.Paths` and `java.nio.Files` are used extensively. This is Java 8 way of dealing with file paths.
 
 
@@ -108,6 +108,7 @@ Fragment:
 import com.kazurayam.materials.MaterialRepository
 import com.kazurayam.materials.MaterialRepositoryFactory
 ```
+
 ```
 // descide in which directory we will create a MaterialRepository
 Path materialsDir = Paths.get(RunConfiguration.getProjectDir()).resolve('Materials')
@@ -121,7 +122,7 @@ Path pngFile = mr.resolveMaterialPath('TC02_MaterialRepository', 'TC02_screensho
 
 ### description
 
-This test case takes a screenshot of Web page `http://demoaut.katalon.com` and save the image into a file under the directory   `${UsingMaterialsInKatalonStudio}/Materials`. The file path is `Materials/_/_/TC02_MaterialRepository/TC02_screenshot.png`.
+The test case `TC02_MaterialRepository` takes a screenshot of Web page `http://demoaut.katalon.com` and save the image into a file under the directory   `${UsingMaterialsInKatalonStudio}/Materials`. The file path is `Materials/_/_/TC02_MaterialRepository/TC02_screenshot.png`.
 
 ### how to run it
 
@@ -133,6 +134,7 @@ In Katalon Studio GUI, open the test case `TC02_MaterialRepository` and run it b
 Running this test case will result in the following tree:
 
 ```
+$ cd UsingMaterialsInKatalonStudio
 $ tree Materials
 Materials
 └── _
@@ -143,18 +145,18 @@ Materials
 
 ### notes
 
-1. `resolveMaterialPath(String testCaseName, String fileName)` resolves the path for a *material*. A File of length==0 will be created by this method call.
+1. `resolveMaterialPath(String testCaseName, String fileName)` method resolves the path for a *material*. A File will be created with length=0 by this method call.
 
-## Test Case `TC03_subdirectories under testCaseName`
+## Test Case `TC03_subdirectories_under_testCaseName`
 
 ### source
 
 The test case script is
-[here](Scripts/TC03_subdirectories under testCaseName/Script1536642359919.groovy).
+[here](Scripts/TC03_subdirectories_under_testCaseName/Script1536642359919.groovy).
 
 Fragment:
 ```
-Path pngFile = mr.resolveMaterialPath('TC03_subdirectories under testCaseName', 'subdirA/subdirA/TC03_screenshot.png')
+Path pngFile = mr.resolveMaterialPath('TC03_subdirectories_under_testCaseName', 'subdirA/subdirA/TC03_screenshot.png')
 
 ```
 
@@ -164,18 +166,19 @@ Please note that the 2nd argument to `resolveMaterialPath()` method call has pre
 
 ### how to run it
 
-In Katalon Studio GUI, open the test case `TC03_subdirectories under testCaseName` and run it by clicking the run button  ![run](docs/run_button.PNG)
+In Katalon Studio GUI, open the test case `TC03_subdirectories_under_testCaseName` and run it by clicking the run button  ![run](docs/run_button.PNG)
 
 ### output
 
 Running this test case will result in the following tree:
 
 ```
+$ cd UsingMaterialsInKatalonStudio
 $ tree Materials
 Materials
 └── _
     └── _
-        └── TC03_subdirectories under testCaseName
+        └── TC03_subdirectories_under_testCaseName
             ├── subdirA
             │   └── subdirA
             │       └── TC03_screenshot.png
@@ -184,19 +187,20 @@ Materials
                     └── TC03_screenshot.png
 ```
 
-## Test Case `TC04_URL-based filename`
+## Test Case `TC04_URL-based_filename`
 
 ### source
 
 The test case script is
-[here](Scripts/TC04_URL-based filename/Script1536642448370.groovy).
+[here](Scripts/TC04_URL-based_filename/Script1536642448370.groovy).
 
 ```
+$ cd UsingMaterialsInKatalonStudio
 $ tree Materials
 Materials
 └── _
     └── _
-        └── TC04_URL-based filename
+        └── TC04_URL-based_filename
             ├── http%3A%2F%2Fdemoaut.katalon.com.png
             └── subdir
                 └── http%3A%2F%2Fdemoaut.katalon.com.png
@@ -208,7 +212,8 @@ Materials
 The test case script is  [here](Scripts/TC05_GlobalVariable.CURRENT_TESTCASE_ID/Script1536640253323.groovy).
 
 ```
-:UsingMaterialsInKatalonStudio [master]$ tree Materials
+$ cd UsingMaterialsInKatalonStudio
+$ tree Materials
 Materials
 └── _
     └── _
@@ -221,6 +226,7 @@ Materials
 The test case script is [here](Scripts/TC06_GlobalVariable.MATERIAL_REPOSITORY/Script1536640238920.groovy).
 
 ```
+$ cd UsingMaterialsInKatalonStudio
 $ tree Materials
 Materials
 └── _
@@ -235,21 +241,21 @@ Materials
 
 ```
 
-## Test Case `TS07_visit a web page`
+## Test Case `TS07_visit_a_web_page`
 
-The test case script is [here](Scripts/TC07_visiting a web site/Script1536650683310.groovy).
+The test case script is [here](Scripts/TC07_visiting_a_web_site/Script1536650683310.groovy).
 
 ```
 ```
 
 
 
-## Test Suite Collection `TSC09_visit a web site and make index`
+## Test Suite Collection `TSC09_visit_a_web_site_and_make_index`
 
 ![TSC09](docs/TSC09.png)
 
 The test case script is [here: TC08_makeIndex](Scripts/TC08_makeIndex/Script1536651022281.groovy).
 
-## Test Suite Collection `TSC10_visit 2 environments`
+## Test Suite Collection `TSC10_visit_2 environments`
 
 ![TSC09](docs/TSC10_marked.png)
