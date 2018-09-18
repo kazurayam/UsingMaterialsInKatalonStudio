@@ -25,7 +25,7 @@ I need to design the paths for those files. Also I need a class library which im
 
 # Solution
 
-The [`Materials`](https://github.com/kazurayam/Materials) library implements the  `com.kazurayam.materials.MaterialRepository` object. A test script in Katalon Studio can ask `MaterialRepository` to resolve path for a *material* for you. The path would be in the format as follows:
+The [`Materials`](https://github.com/kazurayam/Materials) library implements the  `com.kazurayam.materials.MaterialRepository` object. A test script in Katalon Studio can ask the  `MaterialRepository` object to resolve path for a *material* for you. The path would be in the format as follows:
 
 `${projectDir}/Materials/${testSuiteName}/${testSuiteTimestamp}/${testCaseName}/${subdirs}/${fileName}`
 
@@ -58,7 +58,7 @@ You will find `Materials-x.x.jar` file in `${MaterialsProjectDir}/build/libs` di
 
 # Description of codes
 
-I will describe all test scripts one by one.
+I will describe all test scripts one by one. Please retrieve each pages by clicking the links.
 
 ## [Test Case `TC01_starter`](./TC01_starter.md)
 
@@ -78,4 +78,4 @@ I will describe all test scripts one by one.
 
 ## [Test Suite Collection `TSC09_visit_a_web_site_and_make_index`](./TSC09_visit_a_web_site_and_make_index.md)
 
-## [Test Suite Collection `TSC10_visit_2_environments`](./TSC10_visit_2_environements.md)
+## [Test Suite Collection `TSC10_visit_2_environments`](./TSC10_visit_2_environments.md)

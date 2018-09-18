@@ -8,11 +8,13 @@ Why we do so? What is the benefit of using Test Suites? --- I will exmplain it l
 ### source
 
 Here we introduce a GlobalVariable named `MATERIAL_REPOSITORY`.
-![MATERIAL_REPOSITORY](docs/images/GlobalVariable.MATERIAL_REPOSITORY)
+![MATERIAL_REPOSITORY](docs/images/GlobalVariable.MATERIAL_REPOSITORY.png)
 
-Please make sure that the `MATERIAL_REPOSITORY` is declared as type of Null which means an instance of `java.lang.Object`. `MASTERAL_REPOSITORY` must not be declared as other types such as `String`.
+Please make sure that the `MATERIAL_REPOSITORY` is declared as type of `null`. Value of `null` here means that the `MATERIAL_REPOSITORY` variable is declared as an instance of `java.lang.Object`. `MATERIAL_REPOSITORY` must not be declared as other types such as `String`.
 
-In the Test Listener [`Test Listeners/MyTestListener.groovy`](Test%20Listeners/MyTestListener.groovy) we will create an instance of `com.kazurayam.materials.Material` and store it into the GlobalVariable. In the method annotated with `@BeforeTestSuite` we do this:
+In the Test Listener [`Test Listeners/MyTestListener.groovy`](Test%20Listeners/MyTestListener.groovy) we create an instance of `com.kazurayam.materials.Material` and store it into the GlobalVariable.
+
+In the method annotated with `@BeforeTestSuite` we do this:
 ```
 @BeforeTestSuite
 def beforeTestSuite(TestSuiteContext testSuiteContext) {
@@ -36,8 +38,16 @@ def beforeTestSuite(TestSuiteContext testSuiteContext) {
     GlobalVariable.MATERIAL_REPOSITORY = mr
 ```
 
+The following line would look very magical:
+```
+mr.putCurrentTestSuite(testSuiteId, testSuiteTimestamp)
+```
+I will explain what it does in the  'output' section.
+
+
 Also in the method annotated with `@BeforeTestCase` we do this:
-`@BeforeTestCase
+```
+@BeforeTestCase
 def beforeTestCase(TestCaseContext testCaseContext) {
     ...
     // prepare an instance of MaterialRepository
@@ -73,8 +83,16 @@ the `com.kazurayam.materials.MaterialRepository` object. You should no longer re
 $ cd UsingMaterialsInKatalonStudio
 $ tree Materials
 Materials
-└── _
-    └── _
-        └── TC06_GlobalVariable.MATERIAL_REPOSITORY
-            └── TC06_screenshot.png
+└─TS06_GlobalVariable.MATERIAL_REPOSITORY
+    └─20180918_164113
+        └─TC06_GlobalVariable.MATERIAL_REPOSITORY
+                TC06_screenshot.png
 ```
+
+Please not the directory name **`TS06_GlobalVariable.MATERIAL_REPOSITORY`** and **`20180918_164113`**. These are the name of Test Suite, and the timestamp when the Test Suite was executed. `com.kazurayam.materials.MaterialRepository` object was informed of these by the mehtod annotated with `@BeforeTestSuite` in the `MyTestLister`:
+```
+    mr.putCurrentTestSuite(testSuiteId, testSuiteTimestamp)
+```
+
+Having a redundant directory layer by timestamp is useful because it enables us to retain all the materials created by previous test suite runs chronologically. I imitated the directory structure of the `Reports` directory of Katalon Studio.
+![Reports](./docs/images/Reports.png)

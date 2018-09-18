@@ -4,7 +4,7 @@
    <name>TS06_GlobalVariable.MATERIAL_REPOSITORY</name>
    <tag></tag>
    <isRerun>false</isRerun>
-   <lastRun>2018-09-11T15:55:50</lastRun>
+   <lastRun>2018-09-18T16:57:09</lastRun>
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>30</pageLoadTimeout>
