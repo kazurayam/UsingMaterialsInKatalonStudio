@@ -212,8 +212,9 @@ pngFile = mr.resolveScreenshotPath('TC04_URL-based_filename', Paths.get('subdir'
 
 ### description
 
-`MaterialRepository` provides another method `resolveScreenshotPath(String testCaseName, URL url)` and `resolveScreenshotPath(String testCaseName, Path subdir, URL url)`
+How a screenshot of a web page should be named? You can name it as 'sample1.png' or 'demoX.png'. That's fine. But the easiest way to name a screenshot file is to name it the same as its URL.
 
+`MaterialRepository` provides another method `resolveScreenshotPath(String testCaseName, URL url)` and `resolveScreenshotPath(String testCaseName, Path subdir, URL url)`. The `resolveScreeshotPath` method does URL-encoding to the URL string so that we can escape special characters into %xx format.
 
 ### output
 ```
@@ -231,7 +232,28 @@ Materials
 
 ## Test Case `TC05_GlobalVariable.CURRENT_TESTCASE_ID`
 
-The test case script is  [here](Scripts/TC05_GlobalVariable.CURRENT_TESTCASE_ID/Script1536640253323.groovy).
+### source and description
+
+Now we introduce [`MyTestListerner`](Test\ Listener/MyTestListener.groovy). In the method annotated with `@BeforeTestCase` we will make a GlobalVariable named `CURRENT_TESTCASE_ID` and set the ID of current TestCase.
+```
+@BeforeTestCase
+def beforeTestCase(TestCaseContext testCaseContext) {
+    GlobalVariable.CURRENT_TESTCASE_ID = testCaseContext.getTestCaseId()
+```
+
+
+Then in the test case [`TC05_GlobalVariable.CURRENT_TESTCASE_ID`](Scripts/TC05_GlobalVariable.CURRENT_TESTCASE_ID/Script1536640253323.groovy), we will refer to the value of `CURRENT_TESTCASE_ID` set by the Test Listener.
+
+```
+String testCaseId = (String)GlobalVariable.CURRENT_TESTCASE_ID
+assert testCaseId != null
+assert testCaseId.length() > 0
+Path pngFile = mr.resolveMaterialPath(testCaseId, 'TC05_screenshot.png')
+```
+
+This coding resolved the test case name automatically. You do not have to worry about hard-coded test case names in the scripts as [TC02_MaterialRepository](Scripts/TC02_MaterialRepository/Script1536642272611.groovy).
+
+### output
 
 ```
 $ cd UsingMaterialsInKatalonStudio
