@@ -11,19 +11,21 @@ I have developed another project on GitHub named ['Materials'](https://github.co
 
 In this 'UsingMaterialsInKatalonStudio' project, I will show you, step by step, how to write test scripts in Katalon Studio making use of the  ['Materials'](https://github.com/kazurayam/Materials) library.
 
+The Groovydoc of the `Materials` is publshed [here](https://kazurayam.github.io/Materials/).
+
 # Problem to solve
 
 What is a *material*? By the term *Material* I mean any file created on run by test scripts. A typical example of a *Material* is a screenshot image of a web page taken by [WebDriver API](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/TakesScreenshot.html). Other examples of *Material* include: PDF file downloaded from web site, Excel file created by test script, or XML/JSON response from RESTful API call.
 
 Selenium WebDriver and Katalon Studio provide sound support for interacting with web. But their support falls short of the following  problem: **which path to save a file as?**
 
-Specifying a one-off file path is trivial. Say, `C:\Users\myself\tmp\sample_screenshot.png` would be fine. However if we are to make dozens of *materials* repeatedly and **if we are to reuse the files after the tests**, then it becomes an itchy problem how to resolve paths for all *materials* appropriately. For example, I want to take 30 screenshots of my web app in both of the production environment and the development environment. After taking screenshots, I want to compare  pairs of images to find out if any difference found.
+Specifying a one-off file path is trivial. Say, `C:\Users\myself\tmp\sample_screenshot.png` would be fine. However if we are to make dozens of *materials* repeatedly and **if we are to reuse the files after the tests**, then it becomes an itchy problem how to resolve paths for all *materials* appropriately. For example, I want to take 30 screenshots of my web app in both of the production environment and the development environment. After taking screenshots, I want to compare  pairs of images to find out if any differences are found.
 
-I need to design the paths for those files. I need a class library which implements a designed respository for the files (*materials*) with intuitive access methods.
+I need to design the paths for those files. Also I need a class library which implements a designed respository for the files (*materials*) with intuitive access methods.
 
 # Solution
 
-The [`Materials`](https://github.com/kazurayam/Materials) library provides the  `com.kazurayam.materials.MaterialRepository` class. A test script in Katalon Studio can let `MaterialRepository` to resolve path for a *material*. The path would be in the format as follows:
+The [`Materials`](https://github.com/kazurayam/Materials) library implements the  `com.kazurayam.materials.MaterialRepository` object. A test script in Katalon Studio can ask `MaterialRepository` to resolve path for a *material* for you. The path would be in the format as follows:
 
 `${projectDir}/Materials/${testSuiteName}/${testSuiteTimestamp}/${testCaseName}/${subdirs}/${fileName}`
 
@@ -31,10 +33,10 @@ For example,
 
 `./Materials/TS07_visit a web site/20180913_093512/TC07_visiting a web site/1 CURA_Homepage.png`
 
-One of the examples here will output a file tree like this:
+One of the examples here will create a file tree like this:
 ![TSC10_marked](docs/images/TSC10_marked.png)
 
-Also the `com.kazurayam.materials.MaterialRepository` class compiles `./Materials/index.html` file. This HTML file provides easy access to the files contained in the respository. The following picture shows an example of the index.
+Also the `com.kazurayam.materials.MaterialRepository` object can make `./Materials/index.html` file. This HTML file is a viewer, provides easy access to the files contained in the repository. The following picture shows an example of the `./Materials/index`.
 ![index](docs/images/index.png)
 ![index_modal](docs/images/index_modal.png)
 
