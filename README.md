@@ -234,15 +234,15 @@ Materials
 
 ### source and description
 
-Now we introduce [`MyTestListerner`](Test%20Listener/MyTestListener.groovy). In the method annotated with `@BeforeTestCase` we will make a GlobalVariable named `CURRENT_TESTCASE_ID` and set the ID of current TestCase.
+Here we introduce a GlobalVariable named `CURRENT_TESTCASE_ID`. And we introduce a Test Listener
+[`MyTestListerner`](Test%20Listeners/MyTestListener.groovy). In the method annotated with `@BeforeTestCase` we will seth the ID of current test case to the `GlobalVariable.CURRENT_TESTCASE_ID`.
 ```
 @BeforeTestCase
 def beforeTestCase(TestCaseContext testCaseContext) {
     GlobalVariable.CURRENT_TESTCASE_ID = testCaseContext.getTestCaseId()
 ```
 
-
-Then in the test case [`TC05_GlobalVariable.CURRENT_TESTCASE_ID`](Scripts/TC05_GlobalVariable.CURRENT_TESTCASE_ID/Script1536640253323.groovy), we will refer to the value of `CURRENT_TESTCASE_ID` set by the Test Listener.
+On the other hand, the test case [`TC05_GlobalVariable.CURRENT_TESTCASE_ID`](Scripts/TC05_GlobalVariable.CURRENT_TESTCASE_ID/Script1536640253323.groovy) will refer to the value of `CURRENT_TESTCASE_ID`.
 
 ```
 String testCaseId = (String)GlobalVariable.CURRENT_TESTCASE_ID
@@ -251,7 +251,7 @@ assert testCaseId.length() > 0
 Path pngFile = mr.resolveMaterialPath(testCaseId, 'TC05_screenshot.png')
 ```
 
-This coding resolved the test case name automatically. You do not have to worry about hard-coded test case names in the scripts as [TC02_MaterialRepository](Scripts/TC02_MaterialRepository/Script1536642272611.groovy).
+This tricky coding resolves the test case name automatically. You do not have hard-code test case names in the scripts as we did in  [TC02_MaterialRepository](Scripts/TC02_MaterialRepository/Script1536642272611.groovy).
 
 ### output
 
@@ -265,9 +265,76 @@ Materials
             └── TC05_screenshot.png
 ```
 
-## Test Case `TC06_GlobalVariable.MATERIAL_REPOSITORY`
+## Test Suite `TS06_GlobalVariable.MATERIAL_REPOSITORY`
 
-The test case script is [here](Scripts/TC06_GlobalVariable.MATERIAL_REPOSITORY/Script1536640238920.groovy).
+Until `TC05...` we executed indivisual Test Cases.
+As of here, we will wrap each test cases with a test suite,
+and will execute the test suite, rather than executing test cases.
+Why we do so? What is the benefit of using Test Suites? --- I will exmplain it later.
+
+### source
+
+Here we introduce a GlobalVariable named `MATERIAL_REPOSITORY`.
+![MATERIAL_REPOSITORY](docs/images/GlobalVariable.MATERIAL_REPOSITORY)
+
+Please make sure that the `MATERIAL_REPOSITORY` is declared as type of Null which means an instance of `java.lang.Object`. `MASTERAL_REPOSITORY` must not be declared as other types such as `String`.
+
+In the Test Listener [`Test Listeners/MyTestListener.groovy`](Test%20Listeners/MyTestListener.groovy) we will create an instance of `com.kazurayam.materials.Material` and store it into the GlobalVariable. In the method annotated with `@BeforeTestSuite` we do this:
+```
+@BeforeTestSuite
+def beforeTestSuite(TestSuiteContext testSuiteContext) {
+    // prepare instance of MaterialRepository
+    // The directory 'Materials' will be created if not present by the MaterialRepository
+    MaterialRepository mr = MaterialRepositoryFactory.createInstance(materialsDir)
+
+    // Find out the Test Suite ID
+    String testSuiteId = testSuiteContext.getTestSuiteId()
+
+    // Find out the Test Suite Timestamp
+    Path reportDir = Paths.get(RunConfiguration.getReportFolder())
+    String testSuiteTimestamp = reportDir.getFileName().toString()
+    // e.g. '20180618_165141'
+
+    // inform the MaterialRespository of the current Test Suite
+    mr.putCurrentTestSuite(testSuiteId, testSuiteTimestamp)
+
+    // save the instance into GlobalVariable so that it is visible
+    // for all test cases activated by the Test Suite
+    GlobalVariable.MATERIAL_REPOSITORY = mr
+```
+
+Also in the method annotated with `@BeforeTestCase` we do this:
+`@BeforeTestCase
+def beforeTestCase(TestCaseContext testCaseContext) {
+    ...
+    // prepare an instance of MaterialRepository
+    // The directory 'Materials' will be created if not present by the MaterialRepository
+    // This is necessary for the case a Test Case is executed directly without being wrapped by a Test Suite.
+    if (GlobalVariable.MATERIAL_REPOSITORY == null) {
+        // If wrapped by a Test Suite, the handler method annotated with @BeforeTest suite will be called
+        // and it will instantiate a MaterialRepository and store it into GlobalVariable. Therefore
+        // we check if the GlobalVariable is null or not. We will instantiate new one
+        // only when the GlobalVariable is null.
+        MaterialRepository mr = MaterialRepositoryFactory.createInstance(materialsDir)
+        GlobalVariable.MATERIAL_REPOSITORY = mr
+    }
+}
+```
+
+Now the Test case [`TC06_GlobalVariable.MATERIAL_REPOSITORY`](Scripts/TC06_GlobalVariable.MATERIAL_REPOSITORY/Script1536640238920.groovy) refers to the `GlobalVariable.MATERIAL_REPOSITORY` like this:
+```
+MaterialRepository mr = (MaterialRepository)GlobalVariable.MATERIAL_REPOSITORY
+assert mr != null
+...
+Path pngFile = mr.resolveMaterialPath(testCaseId, 'TC06_screenshot.png')
+
+```
+
+The [`Test Listener/MyTestListener`] now holds centralized control over instantiating
+the `com.kazurayam.materials.MaterialRepository` object. You should no longer repeat
+
+
+### output
 
 ```
 $ cd UsingMaterialsInKatalonStudio
