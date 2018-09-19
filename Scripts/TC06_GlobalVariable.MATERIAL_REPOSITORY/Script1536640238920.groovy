@@ -33,24 +33,28 @@ WebUI.verifyElementPresent(
 	10, FailureHandling.STOP_ON_FAILURE)
 
 // prepare instance of MaterialRepository
+// it is necessary to explicitly cast the type from java.lang.Object to
+// com.kazurayam.materials.MaterialRepository
 MaterialRepository mr = (MaterialRepository)GlobalVariable.MATERIAL_REPOSITORY
 assert mr != null
 
 // resolve the location of PNG file to save the screenshot
+// Again it is necessary to explicitly cast the type from java.lang.Object
+// to java.lang.String
 String testCaseId = (String)GlobalVariable.CURRENT_TESTCASE_ID
 assert testCaseId != null
 // get the testCaseId from GlobalVariable.CURRENT_TESTCASE_ID which is set by MyTestListener
 Path pngFile = mr.resolveMaterialPath(testCaseId, 'TC06_screenshot.png')
 /*
- * When the Test Case selected by man and executed, then pngFile will be 
+ * When the Test Case selected by man and executed, then pngFile will be
  * <project dir>/Materials/_/_/<test case name>/<file name>
  * for example ./Materials/_/_/TC06_GlobalVariable.MATERIAL_REPOSITORY/TC06_screenshot.png
  *
  * When the Test Suite TS06 is selected by man, by which the Test Case TC06 is called, then pngFile will be
  * <project dir>/Materials/<Test Suite name>/<Test Suite timestamp>/<Test Case name>/<filename>
  * for example ./Materials/TS06/20180911_154454/TC06_GlobalVariable.MATERIAL_REPOSITORY/TC06_screenshot.png
- * 
- * The @BeforeTestSuite-annotated method of the TestListener is supposed to call 
+ *
+ * The @BeforeTestSuite-annotated method of the TestListener is supposed to call
  * MaterialRepsitory#putCurrentTestSuite(String, String) method in order to mark which Test Suite is current.
  * <pre>
  * // tell the MaterialRespository of the current Test Suite

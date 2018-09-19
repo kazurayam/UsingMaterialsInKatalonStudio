@@ -13,13 +13,13 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
 class MyTestListener {
-	
+
 	static Path materialsDir
-	
+
 	static {
 		materialsDir = Paths.get(RunConfiguration.getProjectDir()).resolve('Materials')
 	}
-	
+
 	/**
 	 *
 	 */
@@ -28,7 +28,7 @@ class MyTestListener {
 		// save the current Test Case ID into a GlobalVariable
 		// in order to make it visible to the test case script when it run
 		GlobalVariable.CURRENT_TESTCASE_ID = testCaseContext.getTestCaseId()
-		
+
 		// prepare an instance of MaterialRepository
 		// The directory 'Materials' will be created if not present by the MaterialRepository
 		// This is necessary for the case a Test Case is executed directly without being wrapped by a Test Suite.
@@ -48,21 +48,22 @@ class MyTestListener {
 	@BeforeTestSuite
 	def beforeTestSuite(TestSuiteContext testSuiteContext) {
 		// prepare instance of MaterialRepository
-		// The directory 'Materials' will be created if not present by the MaterialRepository
+		// The directory '<project dir>/Materials' will be created if not present
+		// by the constructor of MaterialRepository
 		MaterialRepository mr = MaterialRepositoryFactory.createInstance(materialsDir)
-		
+
 		// Find out the Test Suite ID
 		String testSuiteId = testSuiteContext.getTestSuiteId()
 		WebUI.comment(">>> testSuiteId=${testSuiteId}")   // e.g. 'Test Suites/TS07_visit a web site'
-		
+
 		// Find out the Test Suite Timestamp
 		Path reportDir = Paths.get(RunConfiguration.getReportFolder())
 		String testSuiteTimestamp = reportDir.getFileName().toString()
 		WebUI.comment(">>> testSuiteTimestamp=${testSuiteTimestamp}")    // e.g. '20180618_165141'
-		
+
 		// inform the MaterialRespository of the current Test Suite
 		mr.putCurrentTestSuite(testSuiteId, testSuiteTimestamp)
-		
+
 		// save the instance into GlobalVariable so that it is visible
 		// for all test cases activated by the Test Suite
 		GlobalVariable.MATERIAL_REPOSITORY = mr

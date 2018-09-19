@@ -1,16 +1,15 @@
 ## Test Suite `TS06_GlobalVariable.MATERIAL_REPOSITORY`
 
-Until `TC05...` we executed indivisual Test Cases.
-As of here, we will wrap each test cases with a test suite,
-and will execute the test suite, rather than executing test cases.
-Why we do so? What is the benefit of using Test Suites? --- I will exmplain it later.
+Until `TC05...` we executed individual Test Cases.
+From this point, we will wrap each test cases with test suite,
+and will execute the test suite. Why we do so? What is the benefit of using Test Suites? --- I will explain later.
 
 ### source
 
 Here we introduce a GlobalVariable named `MATERIAL_REPOSITORY`.
-![MATERIAL_REPOSITORY](docs/images/GlobalVariable.MATERIAL_REPOSITORY.png)
+![MATERIAL_REPOSITORY](docs/images/GlobalVariable.MATERIAL_REPOSITORY.PNG)
 
-Please make sure that the `MATERIAL_REPOSITORY` is declared as type of `null`. Value of `null` here means that the `MATERIAL_REPOSITORY` variable is declared as an instance of `java.lang.Object`. `MATERIAL_REPOSITORY` must not be declared as other types such as `String`.
+Please make sure that the `MATERIAL_REPOSITORY` is initialized with value of `null`. The Value of `null` here means that the `MATERIAL_REPOSITORY` variable is declared as an instance of `java.lang.Object`. The `MATERIAL_REPOSITORY` must not be declared as other types such as `String`.
 
 In the Test Listener [`Test Listeners/MyTestListener.groovy`](Test%20Listeners/MyTestListener.groovy) we create an instance of `com.kazurayam.materials.Material` and store it into the GlobalVariable.
 
@@ -38,11 +37,11 @@ def beforeTestSuite(TestSuiteContext testSuiteContext) {
     GlobalVariable.MATERIAL_REPOSITORY = mr
 ```
 
-The following line would look very magical:
+The following line may look magical:
 ```
 mr.putCurrentTestSuite(testSuiteId, testSuiteTimestamp)
 ```
-I will explain what it does in the  'output' section.
+I will explain what it does in the 'output' section.
 
 
 Also in the method annotated with `@BeforeTestCase` we do this:
@@ -73,11 +72,13 @@ Path pngFile = mr.resolveMaterialPath(testCaseId, 'TC06_screenshot.png')
 
 ```
 
-The [`Test Listener/MyTestListener`] now holds centralized control over instantiating
-the `com.kazurayam.materials.MaterialRepository` object. You should no longer repeat
+The [`TC06_GlobalVariable.MATERIAL_REPOSITORy`](Scripts/TC06_GlobalVariable.MATERIAL_REPOSITORY/Script1536640238920.groovy), [`TC07_visiting_a_web_site`](Scripts/TC07_visiting_a_web_site/Script1537147387325.groovy) and [`TC08_makeIndex`](Scripts/TC08_makeIndex/Script1536651022281.groovy) --- these test cases do not instantiate the `com.kazurayam.materials.MaterialRepository`. Instead, the `Test Listener/MyTestListener` now holds centralized control over instantiating
+the `com.kazurayam.materials.MaterialRepository` object.
 
 
 ### output
+
+Running the test suite `TS06_GlobalVariable.MATERIAL_REPOSITORY` will result in the following tree.
 
 ```
 $ cd UsingMaterialsInKatalonStudio
@@ -89,10 +90,10 @@ Materials
                 TC06_screenshot.png
 ```
 
-Please not the directory name **`TS06_GlobalVariable.MATERIAL_REPOSITORY`** and **`20180918_164113`**. These are the name of Test Suite, and the timestamp when the Test Suite was executed. `com.kazurayam.materials.MaterialRepository` object was informed of these by the mehtod annotated with `@BeforeTestSuite` in the `MyTestLister`:
+Please note the directory name **`TS06_GlobalVariable.MATERIAL_REPOSITORY`** and **`20180918_164113`**. The name of Test Suite, and the timestamp when the Test Suite was executed. The  `com.kazurayam.materials.MaterialRepository` object was informed of these by the method annotated with `@BeforeTestSuite` in the `MyTestLister`:
 ```
     mr.putCurrentTestSuite(testSuiteId, testSuiteTimestamp)
 ```
 
-Having a redundant directory layer by timestamp is useful because it enables us to retain all the materials created by previous test suite runs chronologically. I imitated the directory structure of the `Reports` directory of Katalon Studio.
+Having a redundant directory layer by timestamp is useful because it enables us to retain all the materials created by previous test suite runs chronologically. I imitated this directory structure of the `Reports` directory of Katalon Studio.
 ![Reports](./docs/images/Reports.png)

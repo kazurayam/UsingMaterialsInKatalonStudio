@@ -60,21 +60,21 @@ You will find `Materials-x.x.jar` file in `${MaterialsProjectDir}/build/libs` di
 
 I will describe all test scripts one by one. Please retrieve each pages by clicking the links.
 
-## Test cases
+## Test Cases
 
-- [Test Case `TC01_starter`](./TC01_starter.md)
-- [Test Case `TC02_MaterialRepository`](./TC02_MaterialRepository.md)
-- [Test Case `TC03_subdirectories_under_testCaseName`](./TC03_subdirectories_under_testCaseName.md)
-- [Test Case `TC04_URL-based_filename`](./TC04_URL-based_filename.md)
-- [Test Case `TC05_GlobalVariable.CURRENT_TESTCASE_ID`](./TC05_GlobalVariable.CURRENT_TESTCASE_ID.md)
+- [`TC01_starter`](./TC01_starter.md)
+- [`TC02_MaterialRepository`](./TC02_MaterialRepository.md)
+- [`TC03_subdirectories_under_testCaseName`](./TC03_subdirectories_under_testCaseName.md)
+- [`TC04_URL-based_filename`](./TC04_URL-based_filename.md)
+- [`TC05_GlobalVariable.CURRENT_TESTCASE_ID`](./TC05_GlobalVariable.CURRENT_TESTCASE_ID.md)
 
 ## Test Suites
 
-- [Test Suite `TS06_GlobalVariable.MATERIAL_REPOSITORY`](./TS06_GlobalVariable.MATERIAL_REPOSITORY.md)
-- [Test Suite `TS07_visit_a_web_site`](./TS07_visit_a_web_site.md)
+- [`TS06_GlobalVariable.MATERIAL_REPOSITORY`](./TS06_GlobalVariable.MATERIAL_REPOSITORY.md)
+- [`TS07_visit_a_web_site`](./TS07_visit_a_web_site.md)
 - [Test Suite `TS08_makeIndex`](./TS08_makeIndex.md)
 
 ## Test Suite Collections
 
-- [Test Suite Collection `TSC09_visit_a_web_site_and_make_index`](./TSC09_visit_a_web_site_and_make_index.md)
-- [Test Suite Collection `TSC10_visit_2_environments`](./TSC10_visit_2_environments.md)
+- [`TSC09_visit_a_web_site_and_make_index`](./TSC09_visit_a_web_site_and_make_index.md)
+- [`TSC10_visit_2_environments`](./TSC10_visit_2_environments.md)
