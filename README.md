@@ -23,7 +23,7 @@ Specifying a one-off file path is trivial. Say, `C:\Users\myname\tmp\sample_scre
 
 How do I want to reuse materials? For example, I want to perform **Visual Testing** in Katalon Studio. I would take 30 screenshots of my web app in both of the production environment and the development environment. After taking screenshots, I want to compare  pairs of images to find out if any differences are found.
 
-I need to design the paths for those files. Also I need a class library which implements a designed respository for the files (*materials*) with intuitive access methods.
+I need to design the paths for those files. Also I need a class library which implements a designed repository for the files (*materials*) with intuitive access methods.
 
 # Solution
 
