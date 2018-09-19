@@ -22,6 +22,8 @@ Here I would call http://demoaut.katalon.com/ as *production* environment.
 And I would call http://demoaut-mimic.kazurayam.com/ as *development* environment.
 ![mimic](docs/images/demoaut-mimic.kazurayam.com/)
 
+You can easily see the development environment is slightly different from the production.
+
 ### output
 
 The test suite collection `TSC10_visit_2_environments` create `./Materials/index.html` as follows:
