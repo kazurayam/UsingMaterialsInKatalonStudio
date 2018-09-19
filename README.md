@@ -21,7 +21,7 @@ Selenium WebDriver and Katalon Studio provide sound support for interacting with
 
 Specifying a one-off file path is trivial. Say, `C:\Users\myname\tmp\sample_screenshot.png` would be fine. However if we are to make dozens of *materials* repeatedly and **if we are to reuse the files after interating with web**, then it becomes an itchy problem how to resolve paths for all *materials* appropriately.
 
-How to reuse files? For example, I want to perform **Visual Testing** in Katalon Studio. I would take 30 screenshots of my web app in both of the production environment and the development environment. After taking screenshots, I want to compare  pairs of images to find out if any differences are found.
+How do I want to reuse materials? For example, I want to perform **Visual Testing** in Katalon Studio. I would take 30 screenshots of my web app in both of the production environment and the development environment. After taking screenshots, I want to compare  pairs of images to find out if any differences are found.
 
 I need to design the paths for those files. Also I need a class library which implements a designed respository for the files (*materials*) with intuitive access methods.
 
