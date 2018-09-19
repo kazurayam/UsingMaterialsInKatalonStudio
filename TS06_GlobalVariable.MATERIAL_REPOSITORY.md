@@ -1,8 +1,6 @@
 ## Test Suite `TS06_GlobalVariable.MATERIAL_REPOSITORY`
 
-Until `TC05...` we executed individual Test Cases.
-From this point, we will wrap each test cases with test suite,
-and will execute the test suite. Why we do so? What is the benefit of using Test Suites? --- I will explain later.
+In the `TC05_GlobalVariable.CURRENT_TESTCASE_ID` we executed individual Test Cases. From this point, we will wrap each test cases with test suite, and will execute the test suite. Why we do so? What is the benefit of using Test Suites? --- I will explain later.
 
 ### source
 
@@ -95,5 +93,7 @@ Please note the directory name **`TS06_GlobalVariable.MATERIAL_REPOSITORY`** and
     mr.putCurrentTestSuite(testSuiteId, testSuiteTimestamp)
 ```
 
-Having a redundant directory layer by timestamp is useful because it enables us to retain all the materials created by previous test suite runs chronologically. I imitated this directory structure of the `Reports` directory of Katalon Studio.
+*Having a redundant directory layer with timestamp is useful because it enables us to retain all the materials created by previous test suite runs chronologically. This enables us to reuse the materials created by previous test suite runs*.
+
+I imitated the directory structure of the `Reports` directory of Katalon Studio. 
 ![Reports](./docs/images/Reports.png)

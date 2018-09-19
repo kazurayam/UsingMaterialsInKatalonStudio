@@ -72,7 +72,7 @@ I will describe all test scripts one by one. Please retrieve each pages by click
 
 - [`TS06_GlobalVariable.MATERIAL_REPOSITORY`](./TS06_GlobalVariable.MATERIAL_REPOSITORY.md)
 - [`TS07_visit_a_web_site`](./TS07_visit_a_web_site.md)
-- [Test Suite `TS08_makeIndex`](./TS08_makeIndex.md)
+- [`TS08_makeIndex`](./TS08_makeIndex.md)
 
 ## Test Suite Collections
 
