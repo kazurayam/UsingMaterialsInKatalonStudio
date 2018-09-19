@@ -73,6 +73,13 @@ Path pngFile = mr.resolveMaterialPath(testCaseId, 'TC06_screenshot.png')
 The [`TC06_GlobalVariable.MATERIAL_REPOSITORy`](Scripts/TC06_GlobalVariable.MATERIAL_REPOSITORY/Script1536640238920.groovy), [`TC07_visiting_a_web_site`](Scripts/TC07_visiting_a_web_site/Script1537147387325.groovy) and [`TC08_makeIndex`](Scripts/TC08_makeIndex/Script1536651022281.groovy) --- these test cases do not instantiate the `com.kazurayam.materials.MaterialRepository`. Instead, the `Test Listener/MyTestListener` now holds centralized control over instantiating
 the `com.kazurayam.materials.MaterialRepository` object.
 
+### how to run it
+
+You can run it as an usual test suite in Katalon Studio:
+
+1. select and open the test suite `TS06_GlobalVariable.MATERIAL_REPOSITORY` in the Katalon Studio's Tests Explorer pane.
+2. click the run button (a green arrow in the tool bar):
+![TS06](docs/images/TS06.png)
 
 ### output
 
@@ -88,12 +95,15 @@ Materials
                 TC06_screenshot.png
 ```
 
-Please note the directory name **`TS06_GlobalVariable.MATERIAL_REPOSITORY`** and **`20180918_164113`**. The name of Test Suite, and the timestamp when the Test Suite was executed. The  `com.kazurayam.materials.MaterialRepository` object was informed of these by the method annotated with `@BeforeTestSuite` in the `MyTestLister`:
+Please note the directory name **`TS06_GlobalVariable.MATERIAL_REPOSITORY`** and **`20180918_164113`**. The name of Test Suite, and the timestamp when the Test Suite was executed. The timestamp value `yyyyMMdd_hhmmss` will be different time to time.
+
+How the timestamp value was identified? --- The  `com.kazurayam.materials.MaterialRepository` object was informed of these by the method annotated with `@BeforeTestSuite` in the `MyTestLister`:
 ```
     mr.putCurrentTestSuite(testSuiteId, testSuiteTimestamp)
 ```
 
 *Having a redundant directory layer with timestamp is useful because it enables us to retain all the materials created by previous test suite runs chronologically. This enables us to reuse the materials created by previous test suite runs*.
 
-I imitated the directory structure of the `Reports` directory of Katalon Studio. 
+I imitated the directory structure of the `Reports` directory of Katalon Studio.
+
 ![Reports](./docs/images/Reports.png)
