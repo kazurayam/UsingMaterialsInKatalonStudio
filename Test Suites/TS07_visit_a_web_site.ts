@@ -4,7 +4,7 @@
    <name>TS07_visit_a_web_site</name>
    <tag></tag>
    <isRerun>false</isRerun>
-   <lastRun>2018-09-15T07:28:42</lastRun>
+   <lastRun>2018-09-19T13:21:39</lastRun>
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>30</pageLoadTimeout>
@@ -15,6 +15,6 @@
       <guid>afa3757d-b10d-4fa1-b611-26d254f7cda5</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/TC07_visiting_a_web_site</testCaseId>
+      <testCaseId>Test Cases/TC07_visit_a_web_site</testCaseId>
    </testCaseLink>
 </TestSuiteEntity>

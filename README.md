@@ -31,10 +31,10 @@ The [`Materials`](https://github.com/kazurayam/Materials) library implements the
 
 For example,
 
-`./Materials/TS07_visit a web site/20180913_093512/TC07_visiting a web site/1 CURA_Homepage.png`
+`./Materials/TS07_visit_a_web_site/20180919_132138/TC07_visit_a_web_site/1 CURA_Homepage.png`
 
 One of the examples here will create a file tree like this:
-![TSC10_marked](docs/images/TSC10_marked.png)
+![TSC10_marked](docs/images/TS07_tree.png)
 
 Also the `com.kazurayam.materials.MaterialRepository` object can make `./Materials/index.html` file. This HTML file is a viewer, provides easy access to the files contained in the repository. The following picture shows an example of the `./Materials/index`.
 ![index](docs/images/index.png)

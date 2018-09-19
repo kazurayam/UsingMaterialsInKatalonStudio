@@ -106,4 +106,4 @@ How the timestamp value was identified? --- The  `com.kazurayam.materials.Materi
 
 I imitated the directory structure of the `Reports` directory of Katalon Studio.
 
-![Reports](./docs/images/Reports.png)
+![Reports](./docs/images/Reports.PNG)
