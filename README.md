@@ -39,8 +39,10 @@ One of the examples here will create a file tree like this:
 ![TSC10_marked](docs/images/TS07_tree.png)
 
 Also the `com.kazurayam.materials.MaterialRepository` object can make `./Materials/index.html` file. This HTML file is a viewer, provides easy access to the files contained in the repository. The following picture shows an example of the `./Materials/index`.
-![index](docs/images/index.png)
-![index_modal](docs/images/index_modal.png)
+
+| index.html | screen shot shown in modal |
+|:-----------|:---------------------------|
+| ![index](docs/images/index.png) | ![index_modal](docs/images/index_modal.png) |
 
 # How to set up
 
