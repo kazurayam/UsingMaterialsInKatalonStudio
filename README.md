@@ -88,9 +88,11 @@ I will describe all test scripts one by one. Please retrieve each pages by click
 
 ## Not only for screen shots but other types of files
 
-This demo project describes how to store screen shots into the `<projectDir>/Materials` folder. However you can store other types of files there: PDF files, Excel files, XML and JSON files.
+The `resolveMaterialPath` method of [`MaterialRepository`]( https://kazurayam.github.io/Materials/com/kazurayam/materials/MaterialRepository.html) returns a `java.nio.file.Path` object = the location of a file. It does not read or write `java.io.File` object. This means that the `Materials` library does not restrict the types of files to be stored in the MaterialRepository.
 
-The `resolveMaterialPath` method of [`MaterialRepository`]( https://kazurayam.github.io/Materials/com/kazurayam/materials/MaterialRepository.html) returns a `java.nio.file.Path` object. It does not return a `java.io.File` object.
+This demo project describes how to store screen shots into the `<projectDir>/Materials` folder. Of course, it is a typical usecase. However you can store other types of files there: PDF files downloaded from web, Excel files createdy by test scripts on the fly, XML and JSON responded Web API services, etc.
+
+
 
 ## Not only for Katalon Studio but other testing frameworks
 
