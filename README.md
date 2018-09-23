@@ -82,3 +82,18 @@ I will describe all test scripts one by one. Please retrieve each pages by click
 
 - [`TSC09_visit_a_web_site_and_make_index`](./TSC09_visit_a_web_site_and_make_index.md)
 - [`TSC10_visit_2_environments`](./TSC10_visit_2_environments.md)
+
+
+# Possible usecases
+
+## Not only for screen shots but other types of files
+
+This demo project describes how to store screen shots into the `<projectDir>/Materials` folder. However you can store other types of files there: PDF files, Excel files, XML and JSON files.
+
+The `resolveMaterialPath` method of [`MaterialRepository`]( https://kazurayam.github.io/Materials/com/kazurayam/materials/MaterialRepository.html) returns a `java.nio.file.Path` object. It does not return a `java.io.File` object.
+
+## Not only for Katalon Studio but other testing frameworks
+
+The `Materials-x.x.x.jar` depends on Java8, [slf4j](https://www.slf4j.org/) and [logback](https://logback.qos.ch/) as the  [build.gradle](https://github.com/kazurayam/Materials/blob/master/build.gradle) file shows. That's all. It does not depend on the [Katalon Studio's API](https://api-docs.katalon.com/) at all.
+
+Therefore it is possible to use the jar with other Java-based testing frameworks such as [JUnit](https://junit.org/junit5/) and [Spock](http://spockframework.org/).
