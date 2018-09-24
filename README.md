@@ -46,19 +46,9 @@ Also the `com.kazurayam.materials.MaterialRepository` object can make `./Materia
 
 # How to set up
 
-`${projectDir}/Drivers/Materials-0.17.jar` is already bundled in this demo project.
+This project depends on the jar provided by the Materials project on GitHub. The jar files are downloadable from the [`Releases`](https://github.com/kazurayam/Materials/releases) page. You can import the jar file into your Katalon Studio project as an [External library](https://docs.katalon.com/display/KD/External+Libraries).
 
-The ['Materials'](https://github.com/kazurayam/Materials) project does not yet have a public Maven Repository from which you can download distributable jar files. Wait for it for some time ...
-
-You can clone the  ['Materials'](https://github.com/kazurayam/Materials) project onto your PC and build the project, provided that you have JDK 8 installed, by executing following command in commandline:
-
-```
-$ cd ${MaterialsProjectDir}
-$ git checkout master
-$ ./gradlew jar
-```
-
-You will find `Materials-x.x.jar` file in `${MaterialsProjectDir}/build/libs` directory. You can import the jar file into your Katalon Studio project as an [External library](https://docs.katalon.com/display/KD/External+Libraries).
+However `${projectDir}/Drivers/Materials-0.17.jar` is already bundled in this demo project.
 
 # Description of codes
 
