@@ -5,7 +5,7 @@ In the `TC05_GlobalVariable.CURRENT_TESTCASE_ID` we executed individual Test Cas
 ### source
 
 Here we introduce a GlobalVariable named `MATERIAL_REPOSITORY`.
-![MATERIAL_REPOSITORY](docs/images/GlobalVariable.MATERIAL_REPOSITORY.PNG)
+![MATERIAL_REPOSITORY](docs/images/TS06/GlobalVariable.MATERIAL_REPOSITORY.PNG)
 
 Please make sure that the `MATERIAL_REPOSITORY` is initialized with value of `null`. The Value of `null` here means that the `MATERIAL_REPOSITORY` variable is declared as an instance of `java.lang.Object`. The `MATERIAL_REPOSITORY` must not be declared as other types such as `String`.
 
@@ -79,7 +79,7 @@ You can run it as an usual test suite in Katalon Studio:
 
 1. select and open the test suite `TS06_GlobalVariable.MATERIAL_REPOSITORY` in the Katalon Studio's Tests Explorer pane.
 2. click the run button (a green arrow in the tool bar):
-![TS06](docs/images/TS06.png)
+![TS06](docs/images/TS06/TS06.png)
 
 ### output
 
@@ -106,4 +106,4 @@ How the timestamp value was identified? --- The  `com.kazurayam.materials.Materi
 
 I imitated the directory structure of the `Reports` directory of Katalon Studio.
 
-![Reports](./docs/images/Reports.PNG)
+![Reports](./docs/images/TS06/Reports.PNG)

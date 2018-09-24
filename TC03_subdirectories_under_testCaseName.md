@@ -17,7 +17,7 @@ Please note that we specified the 2nd argument to `resolveMaterialPath()` method
 
 ### how to run it
 
-In Katalon Studio GUI, open the test case `TC03_subdirectories_under_testCaseName` and run it by clicking the run button  ![run](docs/images/run_button.PNG)
+In Katalon Studio GUI, open the test case `TC03_subdirectories_under_testCaseName` and run it by clicking the run button  ![run](docs/images/TC03/run_button.PNG)
 
 ### output
 

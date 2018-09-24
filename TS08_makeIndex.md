@@ -41,11 +41,11 @@ Materials
 ```
 
 You can open the index.html in your web browser. It will give you tree-like view as follows:
-![Materials_index](docs/images/Materials_index.png)
+![Materials_index](docs/images/TS08/Materials_index.png)
 
 In the above screenshot you can find `production` and `development` in the bar of test suites. This is the name of Execution Profiles which were applied to the Test Suite run.
 
 In the above screenshot you can also find `PASSED` or `FAILURE` for each test case results. This is, as you expect, the result of each test case run.
 
 You can open each material in modal window as follows:
-![Materials_index_modal](docs/images/Materials_index_modal.png)
+![Materials_index_modal](docs/images/TS08/Materials_index_modal.png)
