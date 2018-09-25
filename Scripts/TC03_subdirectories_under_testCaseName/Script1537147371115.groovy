@@ -40,7 +40,7 @@ WebUI.takeScreenshot(pngFile.toFile().toString())
 // The pngFile will be stuffed with image bytes.
 
 // make one more file
-pngFile = mr.resolveMaterialPath('TC03_subdirectories_under_testCaseName', 'subdirB/subdirB/TC03_screenshot.png')
+pngFile = mr.resolveMaterialPath('TC03_subdirectories_under_testCaseName', Paths.get('subdirB/subdirB'), 'TC03_screenshot.png')
 // --> <project dir>/Materials/_/_/TC03_subdirectories under testCaseName/subdirB/subdirB/TC3_screenshot.png
 WebUI.takeScreenshot(pngFile.toFile().toString())
 
