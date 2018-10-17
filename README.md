@@ -7,7 +7,7 @@ This is a [Katalon Studio](https://www.katalon.com/) project for demonstration p
 
 This project was developed using Katalon Studio 5.7.0.
 
-I have developed another project on GitHub named ['Materials'](https://github.com/kazurayam/Materials). The project is developed in Groovy language, provides a jar file. The jar file Materials-x.x.jar is supposed to be imported into Katalon Studio projects as one of the [External library](https://docs.katalon.com/display/KD/External+Libraries).
+I have developed another project on GitHub named ['Materials'](https://github.com/kazurayam/Materials). The project is developed in Groovy language, provides a jar file. You can download Materials-x.x.x.jar file from the [Release](https://github.com/kazurayam/Materials/releases) page. The jar is supposed to be imported into Katalon Studio projects as [External library](https://docs.katalon.com/display/KD/External+Libraries).
 
 In this 'UsingMaterialsInKatalonStudio' project, I will show you, step by step, how to write test scripts in Katalon Studio making use of the  ['Materials'](https://github.com/kazurayam/Materials) library.
 
@@ -15,15 +15,21 @@ The Groovydoc of the `Materials` is published [here](https://kazurayam.github.io
 
 # Problem to solve
 
-What is a *material*? By the term *Material* I mean any file created by test scripts on the fly. A typical example of a *Material* is a screenshot image of a web page taken by [WebDriver API](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/TakesScreenshot.html). Other examples of *Material* include: PDF file downloaded from web site, Excel file created by test script, or XML/JSON response from RESTful API call.
+What is a *material*? By the term *Material* I mean any file created by test scripts on the fly. A typical example of a *Material* is a PNG file as screenshot of web page taken by [WebDriver API](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/TakesScreenshot.html). Other examples of *Material* would include:
+1. PDF files downloaded from web site
+2. Excel/CSV files created by test script
+3. JSON/XML responses from RESTful API call
+4. HTTP Response Header in plain \*.txt format
 
 Selenium WebDriver and Katalon Studio provide sound support for interacting with web. But their support falls short of the following  problem: **which path to save a file as?**
 
 Specifying a one-off path is trivial. Say, `C:\Users\myname\tmp\sample_screenshot.png` would be fine. However if we are to make dozens of *materials* repeatedly and **if we are to reuse the files after interating with web**, then it becomes an itchy problem how to resolve paths for all *materials* appropriately.
 
-How do I want to reuse materials? For example, I want to perform **Visual Testing** in Katalon Studio. I would take 30 screenshots of my web app in both of the production environment and the development environment. After taking screenshots, I want to compare  pairs of images to find out if any differences are found.
+How do I want to reuse materials? For example, I want to perform **Visual Testing** in Katalon Studio. I would take 30 screenshots of my web app in both of the production environment and the development environment. After taking screenshots, I want to compare pairs of images to find out if any differences are found.
 
-I need to design the paths for those files. Also I need a class library which implements a designed repository for the files (*materials*) with intuitive access methods.
+Another usecase of materials is just for logging purpose. When I test RESTful API, it is likely I want to save HTTP Respose and Body into files just for logging.
+
+My problem is that I have to design the paths for those files. I want a reusable solution for resolving material paths: a class library which implements a designed repository for the files (*materials*) with intuitive access methods.
 
 # Solution
 
