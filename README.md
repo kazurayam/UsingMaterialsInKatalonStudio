@@ -41,8 +41,8 @@ For example,
 
 `./Materials/TS07_visit_a_web_site/20180919_132138/TC07_visit_a_web_site/1 CURA_Homepage.png`
 
-One of the examples here will create a file tree like this:
-![TSC10_marked](docs/images/TS07_tree.png)
+An example of file tree created is like this:
+![TS07_tree](docs/images/TS07/TS07_tree.png)
 
 Also the `com.kazurayam.materials.MaterialRepository` object can make `./Materials/index.html` file. This HTML file is a viewer, provides easy access to the files contained in the repository. The following picture shows an example of the `./Materials/index`.
 
