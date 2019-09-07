@@ -27,7 +27,7 @@ The test case `TC02_MaterialRepository` takes a screenshot of Web page `http://d
 ### how to run it
 
 In Katalon Studio GUI, open the test case `TC02_MaterialRepository` and run it by clicking the run button
-![run](docs/images/webui/run_button.PNG)
+![run](./images/webui/run_button.PNG)
 
 ### output
 
