@@ -7,7 +7,8 @@ The test case script is
 
 Fragment:
 ```
-Path pngFile = mr.resolveMaterialPath('TC03_subdirectories_under_testCaseName', 'subdirA/subdirA/TC03_screenshot.png')
+Path pngFile = mr.resolveMaterialPath('TC03_subdirectories_under_testCaseName',
+        'subdirA/subdirA/TC03_screenshot.png')
 
 ```
 
@@ -17,7 +18,7 @@ Please note that we specified the 2nd argument to `resolveMaterialPath()` method
 
 ### how to run it
 
-In Katalon Studio GUI, open the test case `TC03_subdirectories_under_testCaseName` and run it by clicking the run button  ![run](./images/TC03/run_button.PNG)
+In Katalon Studio GUI, open the test case `TC03_subdirectories_under_testCaseName` and run it by clicking the run button ![run](./images/TC03/run_button.PNG)
 
 ### output
 

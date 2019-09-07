@@ -9,7 +9,7 @@ import com.kms.katalon.core.model.FailureHandling as FailureHandling
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 /**
- * TC01_starter
+ * webui/TC01_starter
  * 
  * Open http://demoaut.katalon.com, take screenshot and save it into a file.
  * 

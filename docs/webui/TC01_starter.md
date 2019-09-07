@@ -11,7 +11,7 @@ This test case takes a screenshot of Web page `http://demoaut.katalon.com` and s
 ### how to run it
 
 You can run it as an usual test case in Katalon Studio:
-1. select and open the test case `TC01_starter` in the Katalon Studio's Tests Explorer pane.
+1. select and open the test case `webui/TC01_starter` in the Katalon Studio's Tests Explorer pane.
 2. click the run button (a green arrow in the tool bar): ![run_TC1](./images/TC01/run_TC01.png)
 
 ### output
