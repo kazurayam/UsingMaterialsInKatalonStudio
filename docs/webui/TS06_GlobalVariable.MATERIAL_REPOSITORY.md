@@ -1,4 +1,4 @@
-## Test Suite `TS06_GlobalVariable.MATERIAL_REPOSITORY`
+## Test Suite `webui/TS06_GlobalVariable.MATERIAL_REPOSITORY`
 
 In the `TC05_GlobalVariable.CURRENT_TESTCASE_ID` we executed individual Test Cases. From this point, we will wrap each test cases with test suite, and will execute the test suite. Why we do so? What is the benefit of using Test Suites? --- I will explain later.
 

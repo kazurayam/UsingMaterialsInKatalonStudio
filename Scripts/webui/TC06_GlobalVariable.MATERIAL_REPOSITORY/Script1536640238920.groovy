@@ -29,7 +29,7 @@ WebUI.openBrowser('')
 WebUI.setViewPortSize(1024, 768)
 WebUI.navigateToUrl('http://demoaut.katalon.com')
 WebUI.verifyElementPresent(
-	findTestObject('Page_CuraHomepage/a_Make Appointment'),
+	findTestObject('webui/Page_CuraHomepage/a_Make Appointment'),
 	10, FailureHandling.STOP_ON_FAILURE)
 
 // prepare instance of MaterialRepository

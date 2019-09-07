@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestSuiteEntity>
    <description></description>
-   <name>TS00_clearMaterials</name>
+   <name>TS07_visit_a_web_site</name>
    <tag></tag>
    <isRerun>false</isRerun>
-   <lastRun>2018-10-17T16:01:18</lastRun>
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>30</pageLoadTimeout>
    <pageLoadTimeoutDefault>true</pageLoadTimeoutDefault>
    <rerunFailedTestCasesOnly>false</rerunFailedTestCasesOnly>
-   <testSuiteGuid>2957ae92-b19e-43c6-bffa-17ee69288574</testSuiteGuid>
+   <testSuiteGuid>f1c348a6-4462-40ae-8592-dac51e43e2cf</testSuiteGuid>
    <testCaseLink>
-      <guid>1050d778-1dc9-478a-8bd3-173c908776ce</guid>
+      <guid>afa3757d-b10d-4fa1-b611-26d254f7cda5</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/TC00_clearMaterials</testCaseId>
+      <testCaseId>Test Cases/webui/TC07_visit_a_web_site</testCaseId>
    </testCaseLink>
 </TestSuiteEntity>

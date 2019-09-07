@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestSuiteEntity>
    <description></description>
-   <name>TS08_makeIndex</name>
+   <name>TS06_GlobalVariable.MATERIAL_REPOSITORY</name>
    <tag></tag>
    <isRerun>false</isRerun>
-   <lastRun>2018-10-17T16:01:19</lastRun>
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>30</pageLoadTimeout>
    <pageLoadTimeoutDefault>true</pageLoadTimeoutDefault>
    <rerunFailedTestCasesOnly>false</rerunFailedTestCasesOnly>
-   <testSuiteGuid>5036bf5e-8ec1-4f9e-b3ca-279e7d18e80b</testSuiteGuid>
+   <testSuiteGuid>c46c943d-a5d1-41e9-91f7-be841ab9b48d</testSuiteGuid>
    <testCaseLink>
-      <guid>cef964fb-6de5-4104-9800-f4c7f1bc66ae</guid>
+      <guid>a12206e9-c9e3-4b23-8a44-fabb9a1eb9e4</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/TC08_makeIndex</testCaseId>
+      <testCaseId>Test Cases/webui/TC06_GlobalVariable.MATERIAL_REPOSITORY</testCaseId>
    </testCaseLink>
 </TestSuiteEntity>

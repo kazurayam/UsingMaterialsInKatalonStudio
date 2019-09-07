@@ -1,4 +1,4 @@
-## Test Case `TC02_MaterialRepository`
+## Test Case `webui/TC02_MaterialRepository`
 
 ### source
 The test case script is  [here](Scripts/TC02_MaterialRepository/Script1536642272611.groovy).
@@ -27,7 +27,7 @@ The test case `TC02_MaterialRepository` takes a screenshot of Web page `http://d
 ### how to run it
 
 In Katalon Studio GUI, open the test case `TC02_MaterialRepository` and run it by clicking the run button
-![run](docs/images/run_button.PNG)
+![run](docs/images/webui/run_button.PNG)
 
 ### output
 

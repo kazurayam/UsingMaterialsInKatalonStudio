@@ -1,4 +1,4 @@
-## Test Case `TS07_visit_a_web_site`
+## Test Case `webui/TS07_visit_a_web_site`
 
 The test suite `TS07_visit_a_web_site` visits http://demoaut.katalon.com/, traverse
 the site, and takes 5 screenshots. The path of PNG files will be in the following format:
@@ -25,7 +25,7 @@ Materials
     │          3 CURA_Appointment.png
     │          4 CURA_AppointmentConfirmation.png
     │          5 CURA_Homepage_revisited.png
-    │          
+    │
     └─20180919_132139
         └─TC07_visit_a_web_site
                 1 CURA_Homepage.png
