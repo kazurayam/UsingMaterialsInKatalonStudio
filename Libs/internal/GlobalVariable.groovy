@@ -1,12 +1,8 @@
 package internal
 
 import com.kms.katalon.core.configuration.RunConfiguration
-import com.kms.katalon.core.testobject.ObjectRepository as ObjectRepository
-import com.kms.katalon.core.testdata.TestDataFactory as TestDataFactory
-import com.kms.katalon.core.testcase.TestCaseFactory as TestCaseFactory
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
-import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
+import com.kms.katalon.core.main.TestCaseMain
+
 
 /**
  * This class is generated automatically by Katalon Studio and should not be modified or deleted.
@@ -44,19 +40,19 @@ Profile production : instance of com.kazurayam.materials.MaterialRepository</p>
      
 
     static {
-        def allVariables = [:]        
-        allVariables.put('default', ['CURRENT_TESTCASE_ID' : '', 'MATERIAL_REPOSITORY' : null, 'Hostname' : 'demoaut.katalon.com', 'Username' : 'John Doe', 'Password' : 'ThisIsNotAPassword'])
-        allVariables.put('development', allVariables['default'] + ['CURRENT_TESTCASE_ID' : '', 'MATERIAL_REPOSITORY' : null, 'Hostname' : 'demoaut-mimic.kazurayam.com', 'Username' : 'John Doe', 'Password' : 'ThisIsNotAPassword'])
-        allVariables.put('production', allVariables['default'] + ['CURRENT_TESTCASE_ID' : '', 'MATERIAL_REPOSITORY' : null, 'Hostname' : 'demoaut.katalon.com', 'Username' : 'John Doe', 'Password' : 'ThisIsNotAPassword'])
-        
-        String profileName = RunConfiguration.getExecutionProfile()
-        
-        def selectedVariables = allVariables[profileName]
-        CURRENT_TESTCASE_ID = selectedVariables['CURRENT_TESTCASE_ID']
-        MATERIAL_REPOSITORY = selectedVariables['MATERIAL_REPOSITORY']
-        Hostname = selectedVariables['Hostname']
-        Username = selectedVariables['Username']
-        Password = selectedVariables['Password']
-        
+        try {
+            def selectedVariables = TestCaseMain.getGlobalVariables("default")
+			selectedVariables += TestCaseMain.getGlobalVariables(RunConfiguration.getExecutionProfile())
+            selectedVariables += RunConfiguration.getOverridingParameters()
+    
+            CURRENT_TESTCASE_ID = selectedVariables['CURRENT_TESTCASE_ID']
+            MATERIAL_REPOSITORY = selectedVariables['MATERIAL_REPOSITORY']
+            Hostname = selectedVariables['Hostname']
+            Username = selectedVariables['Username']
+            Password = selectedVariables['Password']
+            
+        } catch (Exception e) {
+            TestCaseMain.logGlobalVariableError(e)
+        }
     }
 }

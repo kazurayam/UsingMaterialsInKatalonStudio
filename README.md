@@ -62,22 +62,22 @@ I will describe all test scripts one by one. Please retrieve each pages by click
 
 ## Test Cases
 
-- [`TC01_starter`](./TC01_starter.md)
-- [`TC02_MaterialRepository`](./TC02_MaterialRepository.md)
-- [`TC03_subdirectories_under_testCaseName`](./TC03_subdirectories_under_testCaseName.md)
-- [`TC04_URL-based_filename`](./TC04_URL-based_filename.md)
-- [`TC05_GlobalVariable.CURRENT_TESTCASE_ID`](./TC05_GlobalVariable.CURRENT_TESTCASE_ID.md)
+- [`webui/TC01_starter`](./docs/webui/TC01_starter.md)
+- [`webui/TC02_MaterialRepository`](./docs/webui/TC02_MaterialRepository.md)
+- [`webui/TC03_subdirectories_under_testCaseName`](./docs/webui/TC03_subdirectories_under_testCaseName.md)
+- [`webui/TC04_URL-based_filename`](./docs/webui/TC04_URL-based_filename.md)
+- [`webui/TC05_GlobalVariable.CURRENT_TESTCASE_ID`](./docs/webui/TC05_GlobalVariable.CURRENT_TESTCASE_ID.md)
 
 ## Test Suites
 
-- [`TS06_GlobalVariable.MATERIAL_REPOSITORY`](./TS06_GlobalVariable.MATERIAL_REPOSITORY.md)
-- [`TS07_visit_a_web_site`](./TS07_visit_a_web_site.md)
-- [`TS08_makeIndex`](./TS08_makeIndex.md)
+- [`webui/TS06_GlobalVariable.MATERIAL_REPOSITORY`](./docs/webui/TS06_GlobalVariable.MATERIAL_REPOSITORY.md)
+- [`webui/TS07_visit_a_web_site`](./docs/webui/TS07_visit_a_web_site.md)
+- [`webui/TS08_makeIndex`](./docs/webui/TS08_makeIndex.md)
 
 ## Test Suite Collections
 
-- [`TSC09_visit_a_web_site_and_make_index`](./TSC09_visit_a_web_site_and_make_index.md)
-- [`TSC10_visit_2_environments`](./TSC10_visit_2_environments.md)
+- [`webui/TSC09_visit_a_web_site_and_make_index`](./docs/webui/TSC09_visit_a_web_site_and_make_index.md)
+- [`webui/TSC10_visit_2_environments`](./docs/webui/TSC10_visit_2_environments.md)
 
 
 # Possible usecases

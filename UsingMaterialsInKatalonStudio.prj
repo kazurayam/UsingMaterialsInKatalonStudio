@@ -4,7 +4,7 @@
    <name>UsingMaterialsInKatalonStudio</name>
    <tag></tag>
    <UUID>0d2b7834-b22f-4105-b113-0d85440004df</UUID>
-   <migratedVersion>5.7.0</migratedVersion>
+   <migratedVersion>5.9.0</migratedVersion>
    <pageLoadTimeout>0</pageLoadTimeout>
    <sourceContent>
       <sourceFolderList>
@@ -19,6 +19,10 @@
          <systemFolderConfiguration>
             <url>Include/features</url>
          </systemFolderConfiguration>
+         <systemFolderConfiguration>
+            <url>Include/config</url>
+         </systemFolderConfiguration>
       </systemFolderList>
    </sourceContent>
+   <type>GENERIC</type>
 </Project>
