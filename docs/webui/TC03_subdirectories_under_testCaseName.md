@@ -3,7 +3,7 @@
 ### source
 
 The test case script is
-[here](Scripts/TC03_subdirectories_under_testCaseName/Script1537147371115.groovy).
+[here](../../Scripts/webui/TC03_subdirectories_under_testCaseName/Script1537147371115.groovy).
 
 Fragment:
 ```

@@ -2,7 +2,7 @@
 
 ### source
 
-The test case script `TC08_makeIndex` is [here](Scripts/TC08_makeIndex/Script1536651022281.groovy).
+The test case script `TC08_makeIndex` is [here](../../Scripts/webui/TC08_makeIndex/Script1536651022281.groovy).
 This test case makes just a single method call `MaterialRepository#makeIndex()`.
 
 ```

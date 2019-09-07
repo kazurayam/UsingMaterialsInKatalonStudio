@@ -9,7 +9,7 @@ Here we introduce a GlobalVariable named `MATERIAL_REPOSITORY`.
 
 Please make sure that the `MATERIAL_REPOSITORY` is initialized with value of `null`. The Value of `null` here means that the `MATERIAL_REPOSITORY` variable is declared as an instance of `java.lang.Object`. The `MATERIAL_REPOSITORY` must not be declared as other types such as `String`.
 
-In the Test Listener [`Test Listeners/MyTestListener.groovy`](Test%20Listeners/MyTestListener.groovy) we create an instance of `com.kazurayam.materials.Material` and store it into the GlobalVariable.
+In the Test Listener [`Test Listeners/MyTestListener.groovy`](../../Test%20Listeners/MyTestListener.groovy) we create an instance of `com.kazurayam.materials.Material` and store it into the GlobalVariable.
 
 In the method annotated with `@BeforeTestSuite` we do this:
 ```
@@ -70,7 +70,7 @@ Path pngFile = mr.resolveMaterialPath(testCaseId, 'TC06_screenshot.png')
 
 ```
 
-The [`TC06_GlobalVariable.MATERIAL_REPOSITORy`](Scripts/TC06_GlobalVariable.MATERIAL_REPOSITORY/Script1536640238920.groovy), [`TC07_visiting_a_web_site`](Scripts/TC07_visiting_a_web_site/Script1537147387325.groovy) and [`TC08_makeIndex`](Scripts/TC08_makeIndex/Script1536651022281.groovy) --- these test cases do not instantiate the `com.kazurayam.materials.MaterialRepository`. Instead, the `Test Listener/MyTestListener` now holds centralized control over instantiating
+The [`TC06_GlobalVariable.MATERIAL_REPOSITORy`](../../Scripts/webui/TC06_GlobalVariable.MATERIAL_REPOSITORY/Script1536640238920.groovy), [`TC07_visiting_a_web_site`](../../Scripts/webui/TC07_visiting_a_web_site/Script1537147387325.groovy) and [`TC08_makeIndex`](../../Scripts/webui/TC08_makeIndex/Script1536651022281.groovy) --- these test cases do not instantiate the `com.kazurayam.materials.MaterialRepository`. Instead, the `Test Listener/MyTestListener` now holds centralized control over instantiating
 the `com.kazurayam.materials.MaterialRepository` object.
 
 ### how to run it

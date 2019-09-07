@@ -10,7 +10,7 @@ def beforeTestCase(TestCaseContext testCaseContext) {
     GlobalVariable.CURRENT_TESTCASE_ID = testCaseContext.getTestCaseId()
 ```
 
-On the other hand, the test case [`TC05_GlobalVariable.CURRENT_TESTCASE_ID`](Scripts/TC05_GlobalVariable.CURRENT_TESTCASE_ID/Script1536640253323.groovy) will refer to the value of `CURRENT_TESTCASE_ID`.
+On the other hand, the test case [`TC05_GlobalVariable.CURRENT_TESTCASE_ID`](../../Scripts/webui/TC05_GlobalVariable.CURRENT_TESTCASE_ID/Script1536640253323.groovy) will refer to the value of `CURRENT_TESTCASE_ID`.
 
 ```
 String testCaseId = (String)GlobalVariable.CURRENT_TESTCASE_ID
@@ -19,7 +19,7 @@ assert testCaseId.length() > 0
 Path pngFile = mr.resolveMaterialPath(testCaseId, 'TC05_screenshot.png')
 ```
 
-This tricky coding resolves the test case name automatically. You do not have hard-code test case names in the scripts as we did in  [TC02_MaterialRepository](Scripts/TC02_MaterialRepository/Script1536642272611.groovy).
+This tricky coding resolves the test case name automatically. You do not have hard-code test case names in the scripts as we did in  [TC02_MaterialRepository](../../Scripts/webui/TC02_MaterialRepository/Script1536642272611.groovy).
 
 ### output
 

@@ -27,7 +27,7 @@ tmp
 
 ### notes
 
-1. Following lines in `TC01_starter` shows that you have to explicitly specify the file path where to save the screenshot:
+1. Following lines in `webui/TC01_starter` shows that you have to explicitly specify the file path where to save the screenshot:
 ```
 Path pngFile = tmpDir.resolve('TC01_screenshot.png')
 WebUI.takeScreenshot(pngFile.toFile().toString())

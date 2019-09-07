@@ -1,7 +1,7 @@
 ## Test Case `webui/TC02_MaterialRepository`
 
 ### source
-The test case script is  [here](Scripts/TC02_MaterialRepository/Script1536642272611.groovy).
+The test case script is [here](../../Scripts/webui/TC02_MaterialRepository/Script1536642272611.groovy).
 
 Fragment:
 ```

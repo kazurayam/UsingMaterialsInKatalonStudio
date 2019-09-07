@@ -20,7 +20,7 @@ Here I would call http://demoaut.katalon.com/ as *production* environment. And I
 
 | Production | Development |
 |:-----------|:------------|
-| http://demoaut.katalon.com/  ![demoaut.katalon.TSC10_visit_2_environments](./images/webui/TSC10/demoaut.katalon.com.png) | http://demoaut-mimic.kazurayam.com/ ![mimic](./images/TSC10/demoaut-mimic.kazurayam.com.png/) |
+| http://demoaut.katalon.com/  ![demoaut.katalon.TSC10_visit_2_environments](./images/TSC10/demoaut.katalon.com.png) | http://demoaut-mimic.kazurayam.com/ ![mimic](./images/TSC10/demoaut-mimic.kazurayam.com.png/) |
 
 You can easily see the development environment is slightly different from the production.
 
