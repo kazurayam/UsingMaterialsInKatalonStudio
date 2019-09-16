@@ -64,9 +64,6 @@ class MyTestListener {
 		// inform the MaterialRespository of the current Test Suite
 		mr.markAsCurrent(testSuiteId, testSuiteTimestamp)
 		
-		// create the directory for the current Test Suite/Test Suite Timestamp
-		mr.ensureTSuiteResultPresent(testSuiteId, testSuiteTimestamp)
-
 		// save the instance into GlobalVariable so that it is visible
 		// for all test cases activated by the Test Suite
 		GlobalVariable.MATERIAL_REPOSITORY = mr
