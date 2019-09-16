@@ -12,7 +12,7 @@ import com.kazurayam.materials.MaterialRepository
 import com.kazurayam.materials.MaterialRepositoryFactory
 
 /**
- * TC02_introducing_MaterialRespository
+ * webui/TC02_introducing_MaterialRespository
  *
  * Open http://demoaut.katalon.com, take screenshot and save it into a file.
  * The location of the screenshot file is resolved by MaterialRespository.

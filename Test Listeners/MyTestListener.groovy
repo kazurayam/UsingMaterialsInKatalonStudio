@@ -62,7 +62,10 @@ class MyTestListener {
 		WebUI.comment(">>> testSuiteTimestamp=${testSuiteTimestamp}")    // e.g. '20180618_165141'
 
 		// inform the MaterialRespository of the current Test Suite
-		mr.putCurrentTestSuite(testSuiteId, testSuiteTimestamp)
+		mr.markAsCurrent(testSuiteId, testSuiteTimestamp)
+		
+		// create the directory for the current Test Suite/Test Suite Timestamp
+		mr.ensureTSuiteResultPresent(testSuiteId, testSuiteTimestamp)
 
 		// save the instance into GlobalVariable so that it is visible
 		// for all test cases activated by the Test Suite

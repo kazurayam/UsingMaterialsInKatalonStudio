@@ -5,10 +5,10 @@ import com.kazurayam.materials.Helpers
 import com.kms.katalon.core.configuration.RunConfiguration
 
 /**
- * webui/TC00_clearMaterials
- * 
+ * webservice/TC00_clearMaterials
+ *
  * recursively delete the directories and files under the <projectDir>/Materials/ directory
- * 
+ *
  * @author kazurayam
  */
 

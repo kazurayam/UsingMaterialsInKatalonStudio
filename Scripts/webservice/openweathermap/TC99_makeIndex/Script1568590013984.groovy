@@ -1,10 +1,11 @@
+
 import com.kazurayam.materials.MaterialRepository
 import internal.GlobalVariable
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 /**
- * webui/TC08_makeIndex
+ * webservice/TC99_makeIndex
  */
 
 // prepare instance of MaterialRepository

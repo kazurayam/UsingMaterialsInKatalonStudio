@@ -38,6 +38,11 @@ Profile production : instance of com.kazurayam.materials.MaterialRepository</p>
      */
     public static Object Password
      
+    /**
+     * <p></p>
+     */
+    public static Object dataPath
+     
 
     static {
         try {
@@ -50,6 +55,7 @@ Profile production : instance of com.kazurayam.materials.MaterialRepository</p>
             Hostname = selectedVariables['Hostname']
             Username = selectedVariables['Username']
             Password = selectedVariables['Password']
+            dataPath = selectedVariables['dataPath']
             
         } catch (Exception e) {
             TestCaseMain.logGlobalVariableError(e)

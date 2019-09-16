@@ -14,7 +14,7 @@ import com.kazurayam.materials.MaterialRepositoryFactory
 import internal.GlobalVariable
 
 /**
- * TC05_GlobalVariable.CURRENT_TESTCASE_ID
+ * webui/TC05_GlobalVariable.CURRENT_TESTCASE_ID
  *
  * Open http://demoaut.katalon.com, take screenshot and save it into a file.
  * The location of the screenshot file is resolved by MaterialRespository.

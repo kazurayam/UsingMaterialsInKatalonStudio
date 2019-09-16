@@ -17,6 +17,10 @@ import org.openqa.selenium.Keys as Keys
 
 import internal.GlobalVariable as GlobalVariable
 
+/**
+ * webui/TC07_visit_a_web_site
+ */
+
 MaterialRepository mr = (MaterialRepository)GlobalVariable.MATERIAL_REPOSITORY
 assert mr != null
 
@@ -120,7 +124,7 @@ boolean isAfterNow = visitDate2.isAfter(LocalDateTime.now())
 WebUI.verifyEqual(isAfterNow, true, FailureHandling.CONTINUE_ON_FAILURE)
 // the date should not be Sunday
 def dayOfWeek = DateTimeFormatter.ofPattern('E').withLocale(Locale.US).format(parsed)
-WebUI.verifyNotEqual(dayOfWeek, 'Sun')
+WebUI.verifyNotEqual(dayOfWeek, 'Боскресенье')    // Боскресенье means Sunday in Russian
 
 // check comment
 def comment = WebUI.getText(findTestObject('webui/Page_AppointmentConfirmation/p_comment'))

@@ -54,7 +54,7 @@ Also the `com.kazurayam.materials.MaterialRepository` object can make `./Materia
 
 This project depends on the jar provided by the Materials project on GitHub. The jar files are downloadable from the [`Releases`](https://github.com/kazurayam/Materials/releases) page. You can import the jar file into your Katalon Studio project as an [External library](https://docs.katalon.com/display/KD/External+Libraries).
 
-However `${projectDir}/Drivers/Materials-0.17.jar` is already bundled in this demo project.
+At early Septermber 2019, `${projectDir}/Drivers/Materials-0.72.1.jar` is bundled in this demo project.
 
 # Description of codes
 

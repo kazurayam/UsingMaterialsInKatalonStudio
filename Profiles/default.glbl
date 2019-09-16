@@ -29,4 +29,9 @@
       <initValue>'ThisIsNotAPassword'</initValue>
       <name>Password</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>dataPath</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

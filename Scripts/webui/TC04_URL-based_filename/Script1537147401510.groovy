@@ -12,10 +12,11 @@ import com.kazurayam.materials.MaterialRepository
 import com.kazurayam.materials.MaterialRepositoryFactory
 
 /**
- * TC03_subdirectories_under_testCaseName
- *
+ * webui/TC04_URL-based_filename
+ * 
  * Open http://demoaut.katalon.com, take screenshot and save it into a file.
  * The location of the screenshot file is resolved by MaterialRespository.
+ * The file name is derived from the URL.
  */
 
 // open browser, navigate to a Katalon demo site, make sure the page is displayed
@@ -41,7 +42,7 @@ WebUI.takeScreenshot(pngFile.toFile().toString())
 // The pngFile will be stuffed with image bytes.
 
 // make one more file under sub-directory
-pngFile = mr.resolveScreenshotPath('TC04_URL-based_filename', Paths.get('subdir'), new URL(urlString))
+pngFile = mr.resolveScreenshotPath('TC04_URL-based_filename', 'subdir', new URL(urlString))
 // --> <project dir>/Materials/_/_/TC04_URL-based_filename/subdir/http%3A%2F%2Fdemoaut.katalon.com.png
 WebUI.takeScreenshot(pngFile.toFile().toString())
 
