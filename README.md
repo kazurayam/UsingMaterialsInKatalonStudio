@@ -105,6 +105,19 @@ for example
 
 `UsingMaterialsInKatalonStudio/Materials/webservice.openweathermap.TS/20190918_090636/webservice.TC11_saveData/weatherData.json`
 
+What is the value of this path format resolved by the Materials library?
+
+Please imagine that I execute this test regularly and repeatedly
+--- once a day, for 30 days.
+Because the path contains yyyyMMdd_hhmmss portion, I can store all 30 JSON files,
+I can refrain from overwriting the file at each run.
+
+Please image that I have 2 or more Test Cases which store JSON files locally.
+Because the path contains <Test Case Id>/<sub dirs> portion, I can automatically
+organize the file tree of output files by Test Case Id.
+
+### How the code works
+
 The test case uses the Materials library to resolve the file path.
 
 The test case `TC11_saveData` will save the path value into a GlobalVariable.dataPath.
