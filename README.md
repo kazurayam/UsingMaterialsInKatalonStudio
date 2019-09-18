@@ -40,13 +40,13 @@ For example,
 `./Materials/TS07_visit_a_web_site/20180919_132138/TC07_visit_a_web_site/1 CURA_Homepage.png`
 
 An example of file tree created is like this:
-![TS07_tree](docs/images/TS07/TS07_tree.png)
+![TS07_tree](docs/webui/images/TS07/TS07_tree.png)
 
 Also the `com.kazurayam.materials.MaterialRepository` object can make `./Materials/index.html` file. This HTML file is a viewer, provides easy access to the files contained in the repository. The following picture shows an example of the `./Materials/index`.
 
 | index.html | screen shot shown in modal |
 |:-----------|:---------------------------|
-| ![index](docs/images/index.png) | ![index_modal](docs/images/index_modal.png) |
+| ![index](docs/webui/images/index.png) | ![index_modal](docs/webui/images/index_modal.png) |
 
 # How to set up
 
@@ -90,10 +90,10 @@ and run it specifying the Execution Profile `webservice_profile`.
 The test will pass. Please read the log and source code to see what was done.
 
 The Test Suite comprises with 4 Test cases:
-1. `Test Cases/webservice/TC10_clearMaterials`
-2. `Test Cases/webservice/TC11_saveData`
-3. `Test Cases/webservice/TC12_verifyData`
-4. `Test Cases/webservice/TC14_makeIndex`
+1. [`Test Cases/webservice/TC10_clearMaterials`](Scripts/webservice/TC10_clearMaterials)
+2. [`Test Cases/webservice/TC11_saveData`](Scripts/webservice/TC11_saveData)
+3. [`Test Cases/webservice/TC12_verifyData`](Scripts/webservice/TC12_verifyData)
+4. [`Test Cases/webservice/TC14_makeIndex`](Scripts/webservice/TC14_makeIndex)
 
 The test case `TC11_saveData` makes a HTTP request to the URL which returns
 a JSON document. The test case saves the JSON document into a file.
