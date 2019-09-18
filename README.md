@@ -112,7 +112,7 @@ Please imagine that I execute this test regularly and repeatedly
 Because the path contains yyyyMMdd_hhmmss portion, I can store all 30 JSON files,
 I can refrain from overwriting the file at each run.
 
-Please image that I have 2 or more Test Cases which store JSON files locally.
+Please imagine that I have 2 or more Test Cases which store JSON files locally.
 Because the path contains <Test Case Id>/<sub dirs> portion, I can automatically
 organize the file tree of output files by Test Case Id.
 
