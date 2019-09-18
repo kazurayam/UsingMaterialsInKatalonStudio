@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>verify data</name>
+   <name>TC10_clearMaterials</name>
    <tag></tag>
    <comment></comment>
-   <testCaseGuid>7065bf56-2782-47f7-b5ea-ec6de1de5712</testCaseGuid>
+   <testCaseGuid>593e2c6c-5a2b-4b7d-a638-c76268d7fc70</testCaseGuid>
 </TestCaseEntity>

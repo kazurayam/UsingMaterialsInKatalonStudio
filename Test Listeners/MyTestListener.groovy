@@ -25,13 +25,13 @@ class MyTestListener {
 	 */
 	@BeforeTestCase
 	def beforeTestCase(TestCaseContext testCaseContext) {
-		// save the current Test Case ID into a GlobalVariable
-		// in order to make it visible to the test case script when it run
-		GlobalVariable.CURRENT_TESTCASE_ID = testCaseContext.getTestCaseId()
-
-		// prepare an instance of MaterialRepository
-		// The directory 'Materials' will be created if not present by the MaterialRepository
-		// This is necessary for the case a Test Case is executed directly without being wrapped by a Test Suite.
+		
+		// If a case a Test Case is executed without being wrapped by a Test Suite, then
+		// the @BeforeTestSuite-annotated method will not be invoked.
+		// Then the GlobalVariable.MATERIAL_REPOSITORY will be left null.
+		// For that case, here we will prepare an instance of MaterialRepository
+		// and store in the GlobalVariable.
+		// The directory 'Materials' will be created by the MaterialRepository
 		if (GlobalVariable.MATERIAL_REPOSITORY == null) {
 			// If wrapped by a Test Suite, the handler method annotated with @BeforeTest suite will be called
 			// and it will instantiate a MaterialRepository and store it into GlobalVariable. Therefore
@@ -40,6 +40,10 @@ class MyTestListener {
 			MaterialRepository mr = MaterialRepositoryFactory.createInstance(materialsDir)
 			GlobalVariable.MATERIAL_REPOSITORY = mr
 		}
+		
+		// save the current Test Case ID into a GlobalVariable
+		// in order to make it visible to the test case script when it run
+		GlobalVariable.CURRENT_TESTCASE_ID = testCaseContext.getTestCaseId()
 	}
 
 	/**

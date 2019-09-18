@@ -5,13 +5,13 @@ Using Materials in Katalon Studio
 
 This is a [Katalon Studio](https://www.katalon.com/) project for demonstration purpose. You can clone this out to your PC and run it with your Katalon Studio.
 
-This project was developed using Katalon Studio 5.7.0.
+I have developed another project on GitHub named ['Materials'](https://github.com/kazurayam/Materials). The project is developed in Groovy language, provides a jar file. You can download Materials-x.x.x.jar file from the [Release](https://github.com/kazurayam/Materials/releases) page. The jar is supposed to be imported into Katalon Studio projects as an [External library](https://docs.katalon.com/display/KD/External+Libraries).
 
-I have developed another project on GitHub named ['Materials'](https://github.com/kazurayam/Materials). The project is developed in Groovy language, provides a jar file. You can download Materials-x.x.x.jar file from the [Release](https://github.com/kazurayam/Materials/releases) page. The jar is supposed to be imported into Katalon Studio projects as [External library](https://docs.katalon.com/display/KD/External+Libraries).
-
-In this 'UsingMaterialsInKatalonStudio' project, I will show you, step by step, how to write test scripts in Katalon Studio making use of the  ['Materials'](https://github.com/kazurayam/Materials) library.
+In this 'UsingMaterialsInKatalonStudio' project, I will show you, step by step, how to write test scripts in Katalon Studio making use of the ['Materials'](https://github.com/kazurayam/Materials) library.
 
 The Groovydoc of the `Materials` is published [here](https://kazurayam.github.io/Materials/).
+
+This project was initially developed using Katalon Studio 5.7.0 and tested using most of the versions up to Katalon Studio 6.3.2. In fact, the Materials library is NOT dependent on Katalon Studio API at all.
 
 # Problem to solve
 
@@ -21,13 +21,11 @@ What is a *material*? By the term *Material* I mean any file created by test scr
 3. JSON/XML responses from RESTful API call
 4. HTTP Response Header in plain \*.txt format
 
-Selenium WebDriver and Katalon Studio provide sound support for interacting with web. But their support falls short of the following  problem: **which path to save a file as?**
+Selenium WebDriver and Katalon Studio provide sound support for interacting with web. But their support falls short of the following problem: **which path to save a file as?**
 
-Specifying a one-off path is trivial. Say, `C:\Users\myname\tmp\sample_screenshot.png` would be fine. However if we are to make dozens of *materials* repeatedly and **if we are to reuse the files after interating with web**, then it becomes an itchy problem how to resolve paths for all *materials* appropriately.
+Specifying a one-off path is trivial. Say, `C:\Users\myname\tmp\sample_screenshot.png` would be fine. However if we are to make dozens of *materials* repeatedly and **if we are to reuse the files after interating with web**, then it becomes an itchy problem how to resolve paths for *materials* appropriately.
 
-How do I want to reuse materials? For example, I want to perform **Visual Testing** in Katalon Studio. I would take 30 screenshots of my web app in both of the production environment and the development environment. After taking screenshots, I want to compare pairs of images to find out if any differences are found.
-
-Another usecase of materials is just for logging purpose. When I test RESTful API, it is likely I want to save HTTP Respose and Body into files just for logging.
+Reusing materials --- what do I mean? For example, I want to perform **Visual Testing** in Katalon Studio. I would take 30 screenshots of my web app in both of the production environment and the development environment. After taking screenshots, I want to compare pairs of images to find out if any differences are there.
 
 My problem is that I have to design the paths for those files. I want a reusable solution for resolving material paths: a class library which implements a designed repository for the files (*materials*) with intuitive access methods.
 
@@ -52,15 +50,17 @@ Also the `com.kazurayam.materials.MaterialRepository` object can make `./Materia
 
 # How to set up
 
-This project depends on the jar provided by the Materials project on GitHub. The jar files are downloadable from the [`Releases`](https://github.com/kazurayam/Materials/releases) page. You can import the jar file into your Katalon Studio project as an [External library](https://docs.katalon.com/display/KD/External+Libraries).
+This project depends on the jar provided by the Materials project on GitHub. The jar file is downloadable from the [`Releases`](https://github.com/kazurayam/Materials/releases) page. You can import the jar file into your Katalon Studio project as an [External library](https://docs.katalon.com/display/KD/External+Libraries).
 
-At early Septermber 2019, `${projectDir}/Drivers/Materials-0.72.1.jar` is bundled in this demo project.
+At early Septermber 2019, `${projectDir}/Drivers/Materials-0.72.2.jar` is bundled in this project.
 
 # Description of codes
 
 I will describe all test scripts one by one. Please retrieve each pages by clicking the links.
 
-## Test Cases
+## Applying the Materials library to WebUI Tests
+
+### Test Cases
 
 - [`webui/TC01_starter`](./docs/webui/TC01_starter.md)
 - [`webui/TC02_MaterialRepository`](./docs/webui/TC02_MaterialRepository.md)
@@ -68,30 +68,54 @@ I will describe all test scripts one by one. Please retrieve each pages by click
 - [`webui/TC04_URL-based_filename`](./docs/webui/TC04_URL-based_filename.md)
 - [`webui/TC05_GlobalVariable.CURRENT_TESTCASE_ID`](./docs/webui/TC05_GlobalVariable.CURRENT_TESTCASE_ID.md)
 
-## Test Suites
+### Test Suites
 
 - [`webui/TS06_GlobalVariable.MATERIAL_REPOSITORY`](./docs/webui/TS06_GlobalVariable.MATERIAL_REPOSITORY.md)
 - [`webui/TS07_visit_a_web_site`](./docs/webui/TS07_visit_a_web_site.md)
 - [`webui/TS08_makeIndex`](./docs/webui/TS08_makeIndex.md)
 
-## Test Suite Collections
+### Test Suite Collections
 
 - [`webui/TSC09_visit_a_web_site_and_make_index`](./docs/webui/TSC09_visit_a_web_site_and_make_index.md)
 - [`webui/TSC10_visit_2_environments`](./docs/webui/TSC10_visit_2_environments.md)
 
+## Applying the Materials library to RESTFul API Tests
 
-# Possible usecases
+An example Test Suite `Test Suites/webservice/openweathermap/TS` is available.
+You can read the source of test cases to find out
+how you can make use of the Materials library for Web Service/API testing.
 
-## Not only for screen shots but other types of files
+Just open the Test Suite `Test Suites/webservice/openweathermap/TS`
+and run it specifying the Execution Profile `webservice_profile`.
+The test will pass. Please read the log and source code to see what was done.
 
-The `resolveMaterialPath` method of [`MaterialRepository`]( https://kazurayam.github.io/Materials/com/kazurayam/materials/MaterialRepository.html) returns a `java.nio.file.Path` object = the location of a file. It does not read or write `java.io.File` object. This means that the `Materials` library does not restrict the types of files to be stored in the MaterialRepository.
+The Test Suite comprises with 4 Test cases:
+1. `Test Cases/webservice/TC10_clearMaterials`
+2. `Test Cases/webservice/TC11_saveData`
+3. `Test Cases/webservice/TC12_verifyData`
+4. `Test Cases/webservice/TC14_makeIndex`
 
-This demo project describes how to store screen shots into the `<projectDir>/Materials` folder. Of course, it is a typical usecase. However you can store other types of files there: PDF files downloaded from web, Excel files createdy by test scripts on the fly, XML and JSON responded Web API services, etc.
+The test case `TC11_saveData` makes a HTTP request to the URL which returns
+a JSON document. The test case saves the JSON document into a file.
+The file path would be in the format of:
 
+`<projectDir>/Materials/<Test Suite Id>/<Test Suite Timestamp>/<Test Case Id>/<sub dirs>/<file name>`
 
+for example
 
-## Not only for Katalon Studio but other testing frameworks
+`UsingMaterialsInKatalonStudio/Materials/webservice.openweathermap.TS/20190918_090636/webservice.TC11_saveData/weatherData.json`
 
-The `Materials-x.x.x.jar` depends on Java8, [slf4j](https://www.slf4j.org/) and [logback](https://logback.qos.ch/) as the  [build.gradle](https://github.com/kazurayam/Materials/blob/master/build.gradle) file shows. That's all. It does not depend on the [Katalon Studio's API](https://api-docs.katalon.com/) at all.
+The test case uses the Materials library to resolve the file path.
 
-Therefore it is possible to use the jar with other Java-based testing frameworks such as [JUnit](https://junit.org/junit5/) and [Spock](http://spockframework.org/).
+The test case `TC11_saveData` will save the path value into a GlobalVariable.dataPath.
+
+Next, the test case `TC12_verifyData` is invoked by the TS.
+
+The test case `TC12_verifyData` will read the GlobalVariable.dataPath for the path info.
+The test case will read the `weatherData.json` file, parse the JSON
+using `groovy.json.JsonSlurper` to obtain an ordinary Groovy object.
+
+You can make any verification over the object using ordinary `assert` statement of
+Groovy language, or you can use any Assertion libraries of your choice.
+The test case `TC12_verifyData` demonstrates how to use `com.kazurayam.ksbackyard.Assert` class,
+which works well with the Exception handling and reporting mechanism of Katalon Studio.

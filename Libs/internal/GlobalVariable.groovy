@@ -11,15 +11,15 @@ public class GlobalVariable {
      
     /**
      * <p>Profile default : Method annotated with @BeforeTestCase in TestListener should set the value
-Profile development : Method annotated with @BeforeTestCase in TestListener should set the value
-Profile production : Method annotated with @BeforeTestCase in TestListener should set the value</p>
+Profile webu_production_environment : Method annotated with @BeforeTestCase in TestListener should set the value
+Profile webui_development_environment : Method annotated with @BeforeTestCase in TestListener should set the value</p>
      */
     public static Object CURRENT_TESTCASE_ID
      
     /**
      * <p>Profile default : instance of com.kazurayam.materials.MaterialRepository
-Profile development : instance of com.kazurayam.materials.MaterialRepository
-Profile production : instance of com.kazurayam.materials.MaterialRepository</p>
+Profile webu_production_environment : instance of com.kazurayam.materials.MaterialRepository
+Profile webui_development_environment : instance of com.kazurayam.materials.MaterialRepository</p>
      */
     public static Object MATERIAL_REPOSITORY
      

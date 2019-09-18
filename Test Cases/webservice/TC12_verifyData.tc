@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>save data</name>
+   <name>TC12_verifyData</name>
    <tag></tag>
    <comment></comment>
-   <testCaseGuid>6d9a10ff-befc-4cf9-a881-972f88c52ef3</testCaseGuid>
+   <testCaseGuid>7065bf56-2782-47f7-b5ea-ec6de1de5712</testCaseGuid>
 </TestCaseEntity>

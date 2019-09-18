@@ -43,5 +43,5 @@ Path data = mr.resolveMaterialPath(GlobalVariable.CURRENT_TESTCASE_ID, 'weatherD
 // remember the path
 GlobalVariable.dataPath = data
 
-// save the JSON data into a file under the Materials directory
-data.toFile().text = JsonOutput.prettyPrint(response.getResponseText())
+// save the JSON data into a file under the Materials directory with specifying encoding
+data.toFile().write(JsonOutput.prettyPrint(response.getResponseText()),"utf-8")
