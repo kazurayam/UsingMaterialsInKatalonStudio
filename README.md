@@ -1,3 +1,9 @@
+This project is obsolete. Do not refer to this. 
+
+Nov, 2023
+kazurayam
+
+----
 Using Materials in Katalon Studio
 =====================================
 
